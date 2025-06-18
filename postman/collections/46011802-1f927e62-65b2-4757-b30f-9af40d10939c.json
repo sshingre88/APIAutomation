@@ -113,7 +113,10 @@
 									"script": {
 										"id": "2bd58cd5-d0a7-4ce7-b3f7-f59a6e686009",
 										"exec": [
-											""
+											" var currentPage=  pm.variables.get(\"RandomPageAccess\");\r",
+											"    //check pagination\r",
+											"\r",
+											"   // const nextPageNumber = jsonData.info.next;"
 										],
 										"type": "text/javascript",
 										"packages": {}
