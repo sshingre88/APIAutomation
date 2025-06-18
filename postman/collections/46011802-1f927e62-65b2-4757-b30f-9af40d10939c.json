@@ -34,7 +34,7 @@
 											"pm.test(\"Check if the value is an integer type for pages object\", function () {\r",
 											"   if('pages' in jsonData.info){\r",
 											"        const pagesValueToCheck = jsonData.info.pages;\r",
-											"        pm.collectionVariables.set(\"AvailablePages\", pagesValueToCheck)\r",
+											"        pm.variables.set(\"AvailablePages\", pagesValueToCheck);\r",
 											"        pm.expect(Number.isInteger(pagesValueToCheck)).to.be.true;\r",
 											"   }\r",
 											"   else\r",
