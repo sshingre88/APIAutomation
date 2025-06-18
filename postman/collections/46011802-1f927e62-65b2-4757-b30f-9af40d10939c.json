@@ -113,7 +113,8 @@
 									"script": {
 										"id": "2bd58cd5-d0a7-4ce7-b3f7-f59a6e686009",
 										"exec": [
-											"pm.collectionVariables.get(\"AvailablePages\");"
+											"const pages= pm.variables.get(\"AvailablePages\", pagesValueToCheck);\r",
+											"console.log(pages);"
 										],
 										"type": "text/javascript",
 										"packages": {}
