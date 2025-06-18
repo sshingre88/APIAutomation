@@ -12,45 +12,6 @@
 					"name": "Characters",
 					"item": [
 						{
-							"name": "APIResources",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "95720748-ee7e-41e4-b7f4-b891f15b0f20",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "46011802-ec63969c-55ac-49ad-ba50-7e7ebe40de24",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://{{Host}}/api",
-									"protocol": "https",
-									"host": [
-										"{{Host}}"
-									],
-									"path": [
-										"api"
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "Character",
 							"event": [
 								{
@@ -148,6 +109,45 @@
 				}
 			],
 			"id": "46011802-477cdad7-d943-45ef-8453-83fff6ed6bc2"
+		},
+		{
+			"name": "APIResources",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "95720748-ee7e-41e4-b7f4-b891f15b0f20",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "46011802-ec63969c-55ac-49ad-ba50-7e7ebe40de24",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{Host}}/api",
+					"protocol": "https",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
