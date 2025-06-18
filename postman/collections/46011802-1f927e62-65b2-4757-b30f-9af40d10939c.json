@@ -107,6 +107,19 @@
 						},
 						{
 							"name": "Pagination",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2bd58cd5-d0a7-4ce7-b3f7-f59a6e686009",
+										"exec": [
+											"pm.collectionVariables.get(\"AvailablePages\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "46011802-088837b1-e42d-490c-8ec2-42f874fad1a5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
