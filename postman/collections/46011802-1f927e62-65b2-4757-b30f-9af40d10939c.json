@@ -118,6 +118,8 @@
 											"\r",
 											"if(pages >0){\r",
 											"    var randomPageNumber=  Math.floor(Math.random() * pages);\r",
+											"    console.log(randomPageNumber);\r",
+											"\r",
 											"}"
 										],
 										"type": "text/javascript",
