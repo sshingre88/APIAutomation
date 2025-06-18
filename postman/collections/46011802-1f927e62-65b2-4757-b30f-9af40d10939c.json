@@ -119,7 +119,11 @@
 											"if(pages >0){\r",
 											"    var randomPageNumber=  Math.floor(Math.random() * pages);\r",
 											"    console.log(randomPageNumber);\r",
-											"    \r",
+											"    pm.variables.set(\"RandomPageAccess\",randomPageNumber);\r",
+											"    //check pagination\r",
+											"\r",
+											"   // const nextPageNumber = jsonData.info.next;\r",
+											"\r",
 											"}"
 										],
 										"type": "text/javascript",
