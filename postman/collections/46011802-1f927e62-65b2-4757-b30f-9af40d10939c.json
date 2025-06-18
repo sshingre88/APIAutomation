@@ -65,7 +65,20 @@
 											"pm.test(\"Check summary object\", function () {\r",
 											"    var jsonData = pm.response.json();\r",
 											"    pm.expect(jsonData.info.count).to.eql(862);\r",
-											"});"
+											"});\r",
+											"\r",
+											"pm.test('Has data', function() {\r",
+											"  pm.expect(jsonData).to.have.property('pages');\r",
+											"});\r",
+											"\r",
+											"pm.test('Has data', function() {\r",
+											"  pm.expect(jsonData).to.have.property('next');\r",
+											"});\r",
+											"\r",
+											"pm.test('Has data', function() {\r",
+											"  pm.expect(jsonData).to.have.property('prev');\r",
+											"});\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
