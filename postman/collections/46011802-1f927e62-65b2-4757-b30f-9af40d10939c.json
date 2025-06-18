@@ -25,13 +25,44 @@
 						},
 						{
 							"name": "Character",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3209c6a1-f38b-49f7-a6c0-a358cb68cc99",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check summary object\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.info.count).to.eql(862);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "46011802-9b6fb763-a6b8-4435-a7d9-ca218c0c162d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character"
+									]
+								}
 							},
 							"response": []
 						}
