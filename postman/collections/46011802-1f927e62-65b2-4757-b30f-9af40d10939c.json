@@ -113,7 +113,9 @@
 									"script": {
 										"id": "2bd58cd5-d0a7-4ce7-b3f7-f59a6e686009",
 										"exec": [
-											" var currentPage=  pm.variables.get(\"RandomPageAccess\");\r",
+											" //var currentPage=  pm.variables.get(\"RandomPageAccess\");\r",
+											"  var currentPage=  pm.variables.set(\"RandomPageAccess\",\"42\");\r",
+											"\r",
 											"   \r",
 											"   pm.test(\"Status code is 200\", function () {\r",
 											"   if(pm.response.code==200){\r",
