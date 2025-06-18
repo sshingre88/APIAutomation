@@ -119,7 +119,7 @@
 											"   if(pm.response.code==200){\r",
 											"        var jsonData = pm.response.json();\r",
 											"        const countValueToCheck = jsonData.info.next;\r",
-											"\r",
+											"        console.log(countValueToCheck);\r",
 											"   }\r",
 											"   else{\r",
 											"     pm.expect.fail(\"Failed to get random page data.\");\r",
