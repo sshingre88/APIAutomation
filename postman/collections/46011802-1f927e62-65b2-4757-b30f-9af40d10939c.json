@@ -119,7 +119,7 @@
 											"   if(pm.response.code==200){\r",
 											"        var jsonData = pm.response.json();\r",
 											"        var nextPageUrl = jsonData.info.next;\r",
-											"        console.log(countValueToCheck);\r",
+											"        console.log(nextPageUrl);\r",
 											"\r",
 											"        let dataArray = nextPageUrl.split('page=');\r",
 											"        console.log(dataArray[0]);\r",
