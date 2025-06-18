@@ -24,7 +24,7 @@
 							"response": []
 						},
 						{
-							"name": "New Request",
+							"name": "Character",
 							"id": "46011802-9b6fb763-a6b8-4435-a7d9-ca218c0c162d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
