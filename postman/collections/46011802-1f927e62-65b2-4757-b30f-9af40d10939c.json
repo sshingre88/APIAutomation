@@ -113,8 +113,12 @@
 									"script": {
 										"id": "2bd58cd5-d0a7-4ce7-b3f7-f59a6e686009",
 										"exec": [
-											"const pages= pm.variables.get(\"AvailablePages\");\r",
-											"console.log(pages);"
+											"var pages= pm.variables.get(\"AvailablePages\");\r",
+											"console.log(pages);\r",
+											"\r",
+											"if(pages >0){\r",
+											"    var randomPageNumber=  Math.floor(Math.random() * pages);\r",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
