@@ -10,7 +10,20 @@
 			"item": [
 				{
 					"name": "Characters",
-					"item": [],
+					"item": [
+						{
+							"name": "New Request",
+							"id": "46011802-ec63969c-55ac-49ad-ba50-7e7ebe40de24",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
 					"id": "46011802-cb61758c-00f1-4631-8362-2bc154fd43a9"
 				}
 			],
