@@ -122,7 +122,7 @@
 											"        console.log(nextPageUrl);\r",
 											"\r",
 											"        let dataArray = nextPageUrl.split('page=');\r",
-											"        console.log(dataArray[1]);\r",
+											"        console.log(\"next page number\"+dataArray[1]);\r",
 											"\r",
 											"   }\r",
 											"   else{\r",
