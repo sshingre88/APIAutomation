@@ -12,7 +12,7 @@
 					"name": "Characters",
 					"item": [
 						{
-							"name": "New Request",
+							"name": "APIResources",
 							"id": "46011802-ec63969c-55ac-49ad-ba50-7e7ebe40de24",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
