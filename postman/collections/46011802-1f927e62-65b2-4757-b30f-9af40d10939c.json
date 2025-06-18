@@ -112,7 +112,25 @@
 							},
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/?page=19",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "19"
+										}
+									]
+								}
 							},
 							"response": []
 						}
