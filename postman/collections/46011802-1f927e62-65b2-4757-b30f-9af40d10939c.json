@@ -895,31 +895,24 @@
 										"exec": [
 											"var responseJson = pm.response.json();\r",
 											"\r",
-											"pm.test(\"Verify a valid character id is returning a 200 status code and correct information\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"        var expectedCharacterId= pm.collectionVariables.get(\"CharacterId\");\r",
-											"        pm.expect(responseJson.id==expectedCharacterId);\r",
-											"\r",
-											"    });\r",
-											"\r",
-											"pm.test(\"Verify character name\", function () {\r",
-											"    pm.expect(responseJson.name).to.eql(data.expectedCharacterName);\r",
+											"pm.test(\"Verify that valid location is returning successful response with status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Verify character ID\", function () {\r",
-											"    pm.expect(responseJson.id).to.eql(parseInt(data.expectedId));\r",
+											"pm.test(\"Location ID is correct\", function () {\r",
+											"    pm.expect(json.id).to.eql(pm.iterationData.location_id);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Verify status\", function () {\r",
-											"    pm.expect(responseJson.status).to.eql(data.expectedstatus);\r",
+											"pm.test(\"Location name is correct.\", function () {\r",
+											"    pm.expect(json.name).to.eql(pm.iterationData.expectedName);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Verify species\", function () {\r",
-											"    pm.expect(responseJson.species).to.eql(data.expectedspecies);\r",
+											"pm.test(\"Location type is correct.\", function () {\r",
+											"    pm.expect(json.type).to.eql(pm.iterationData.expectedType);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Verify gender\", function () {\r",
-											"    pm.expect(responseJson.gender).to.eql(data.expectedgender);\r",
+											"pm.test(\"Location has correct residents info.\", function () {\r",
+											"    pm.expect(json.residents).to.be.an(\"array\").that.is.not.empty;\r",
 											"});"
 										],
 										"type": "text/javascript",
@@ -935,7 +928,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"raw": "https://{{Host}}/api/character/{{location_id}}",
 									"protocol": "https",
 									"host": [
 										"{{Host}}"
@@ -943,7 +936,7 @@
 									"path": [
 										"api",
 										"character",
-										"{{CharacterId}}"
+										"{{location_id}}"
 									]
 								}
 							},
