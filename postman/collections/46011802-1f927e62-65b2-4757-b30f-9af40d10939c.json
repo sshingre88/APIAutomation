@@ -603,9 +603,7 @@
 											"pm.test(\"Verify that multiple characters are returned successfully\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
 											"        const actualIds = responseJson.map(char => char.id);\r",
-											"        console.log(\"actualids \", actualIds);\r",
-											"        console.log(\"expectedCharacterIds \", expectedCharacterIds)\r",
-											"        pm.expect(actualIds).to.be.an(\"array\").that.is.empty;\r",
+											"        pm.expect(actualIds).to.eql(expectedCharacterIds);\r",
 											"    });\r",
 											""
 										],
