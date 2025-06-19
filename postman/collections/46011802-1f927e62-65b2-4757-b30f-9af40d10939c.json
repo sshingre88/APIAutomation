@@ -1126,7 +1126,7 @@
 			"name": "SecurityTests",
 			"item": [
 				{
-					"name": "GetAllCharacters",
+					"name": "GetAllCharacters-RateLimit",
 					"event": [
 						{
 							"listen": "test",
