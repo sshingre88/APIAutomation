@@ -2,7 +2,6 @@
 	"info": {
 		"_postman_id": "1f927e62-65b2-4757-b30f-9af40d10939c",
 		"name": "WitnessAI-Assessment",
-		"description": "This Postman collection is designed to test the [Rick and Morty API](https://rickandmortyapi.com/) with various test cases, including valid, invalid, pagination, and filter scenarios. It supports both **positive and negative** tests for characters, pagination, multiple ID fetches, and filters.EndFragment",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "46011802",
 		"_collection_link": "https://suruchi-523849.postman.co/workspace/5ec38574-c72c-4304-8cff-6a926aecb795/collection/46011802-1f927e62-65b2-4757-b30f-9af40d10939c?action=share&source=collection_link&creator=46011802"
@@ -1023,6 +1022,82 @@
 							"response": []
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "SecurityTests",
+			"item": [
+				{
+					"name": "GetAllCharacters-RateLimit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check for rate limit headers\", function () {\r",
+									"    pm.expect(pm.response.headers.has(\"X-RateLimit-Limit\")).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Host}}/api/character",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"api",
+								"character"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PerformanceTests",
+			"item": [
+				{
+					"name": "GetCharacters-Performance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is under 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Host}}/api/character",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"api",
+								"character"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
