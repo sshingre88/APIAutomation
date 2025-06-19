@@ -655,6 +655,32 @@
 					"item": [
 						{
 							"name": "FilterCharacters",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c3117e2b-ab87-4332-87b8-9b1c3743927c",
+										"exec": [
+											"const response = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Verify character filters are working\", function () {\r",
+											"    pm.expect(response.results.length).to.be.greaterThan(0);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"All characters match the filters\", function () {\r",
+											"    response.results.forEach(character => {\r",
+											"        if (pm.iterationData.status) pm.expect(character.status.toLowerCase()).to.eql(pm.iterationData.status.toLowerCase());\r",
+											"        if (pm.iterationData.gender) pm.expect(character.gender.toLowerCase()).to.eql(pm.iterationData.gender.toLowerCase());\r",
+											"        if (pm.iterationData.species) pm.expect(character.species.toLowerCase()).to.eql(pm.iterationData.species.toLowerCase());\r",
+											"        if (pm.iterationData.name) pm.expect(character.name.toLowerCase()).to.include(pm.iterationData.name.toLowerCase());\r",
+											"    });\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "46011802-1b16b0b5-612d-4eb4-a616-ac725c344f73",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
