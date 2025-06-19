@@ -374,7 +374,7 @@
 									"response": []
 								},
 								{
-									"name": "New Request",
+									"name": "EndPage",
 									"id": "46011802-0bfec5ef-b2c4-44d5-a682-23242f16cc2f",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
