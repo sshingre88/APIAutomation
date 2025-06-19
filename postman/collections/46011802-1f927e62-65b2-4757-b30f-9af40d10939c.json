@@ -246,8 +246,10 @@
 					"script": {
 						"id": "a0a0e3f1-81f0-4814-97be-7d769aff8047",
 						"exec": [
-							"if(pm.info.iterationCount >0)\r",
-							"    pm.test.skip();"
+							"const count = pm.info.iteration;\r",
+							"\r",
+							"if(count>0)\r",
+							"    pm.execution.skipRequest();"
 						],
 						"type": "text/javascript",
 						"packages": {}
