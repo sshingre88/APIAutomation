@@ -31,7 +31,7 @@ jobs:
         newman run Collections/WitnessAI-Assessment.postman_collection.json --folder "GetSingleCharacter" --iteration-data TestData/Characters.json  --environment Config/Production.postman_environment.json   --reporters cli,html --reporter-html-export ./reports/newman-report.html
 
     - name: 📤 Upload HTML Report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: newman-html-report
         path: reports/newman-report.html
