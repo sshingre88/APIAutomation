@@ -306,7 +306,7 @@
 							"name": "Pagination",
 							"item": [
 								{
-									"name": "DefaultFirstPage",
+									"name": "MiddlePage",
 									"id": "46011802-0dc1abc5-7df3-4eab-8f69-000c2e7acea5",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
