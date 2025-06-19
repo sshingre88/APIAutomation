@@ -40,6 +40,20 @@
 								},
 								{
 									"name": "InvalidIdType",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "05a11044-6bd9-45cb-8009-b8888fb53f84",
+												"exec": [
+													"pm.collectionVariables.set(\"CharacterId\", 9999999.01010);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "46011802-5f03d1c1-f7db-430e-ac3a-b4477cecb843",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
