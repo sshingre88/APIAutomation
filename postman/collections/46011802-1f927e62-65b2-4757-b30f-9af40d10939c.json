@@ -128,6 +128,19 @@
 											"script": {
 												"id": "05a11044-6bd9-45cb-8009-b8888fb53f84",
 												"exec": [
+													" pm.test(\"Verify that an API failed gracefully when invalid type (decimal value) has passed in the request.\", function () {\r",
+													"        pm.response.to.have.status(404);\r",
+													"    });"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "97611cd0-b392-4e14-9871-ba17e074853f",
+												"exec": [
 													"pm.collectionVariables.set(\"CharacterId\", 9999999.01010);\r",
 													""
 												],
@@ -142,7 +155,19 @@
 									},
 									"request": {
 										"method": "GET",
-										"header": []
+										"header": [],
+										"url": {
+											"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+											"protocol": "https",
+											"host": [
+												"{{Host}}"
+											],
+											"path": [
+												"api",
+												"character",
+												"{{CharacterId}}"
+											]
+										}
 									},
 									"response": []
 								}
