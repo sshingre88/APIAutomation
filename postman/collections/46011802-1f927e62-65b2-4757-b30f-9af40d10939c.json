@@ -1126,7 +1126,7 @@
 			"name": "SecurityTests",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "GetAllCharacters",
 					"id": "46011802-89ba6491-9aef-430e-8c6b-6d32153f5ff0",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
