@@ -280,7 +280,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "35e79a6f-5c50-4102-84f7-c8d1f662cbd0",
+				"id": "a1df09d9-7a09-430a-8f09-04659a162d2b",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -291,14 +291,22 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "cff80eb4-fb20-4ee8-a3b4-6059da70646f",
+				"id": "db5396af-210e-4666-a2a4-d7af271d29ed",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					"//Util Functions\r",
 					"\r",
-					"function validateIdSortOrder(){\r",
-					"    \r",
+					"function isSortedById(ids) {\r",
+					"  if (!Array.isArray(ids)) return false;\r",
+					"\r",
+					"  for (let i = 1; i < ids.length; i++) {\r",
+					"    if (ids[i] < ids[i - 1]) {\r",
+					"      return false;\r",
+					"    }\r",
+					"  }\r",
+					"\r",
+					"  return true;\r",
 					"}"
 				]
 			}
