@@ -745,7 +745,136 @@
 		},
 		{
 			"name": "Locations",
-			"item": [],
+			"item": [
+				{
+					"name": "GetAllCharacters Copy",
+					"item": [
+						{
+							"name": "GetAllCharacters",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3209c6a1-f38b-49f7-a6c0-a358cb68cc99",
+										"exec": [
+											"var jsonData= null;\r",
+											"var expectedCharacterCount=pm.variables.get(\"TotalCharacters\");\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"     jsonData = pm.response.json();\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check total character count\", function () {\r",
+											"    pm.expect(jsonData.info.count==expectedCharacterCount);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is an integer type for pages object\", function () {\r",
+											"   if('pages' in jsonData.info){\r",
+											"        const pagesValueToCheck = jsonData.info.pages;\r",
+											"        pm.variables.set(\"AvailablePages\", pagesValueToCheck);\r",
+											"        pm.expect(Number.isInteger(pagesValueToCheck)).to.be.true;\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return pages information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is an integer type for count object\", function () {\r",
+											"   if('count' in jsonData.info){\r",
+											"        const countValueToCheck = jsonData.info.count;\r",
+											"        pm.expect(Number.isInteger(countValueToCheck)).to.be.true;\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return pages information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is of string type for next field\", function () {\r",
+											"   if('next' in jsonData.info){\r",
+											"        const countValueToCheck = jsonData.info.next;\r",
+											"        if(countValueToCheck!=null)\r",
+											"             pm.expect(countValueToCheck).to.be.a(\"string\");\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return next page url information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is of string type for prev field\", function () {\r",
+											"   if('next' in jsonData.info){\r",
+											"        const countValueToCheck = jsonData.info.prev;\r",
+											"        if(countValueToCheck!=null)\r",
+											"             pm.expect(countValueToCheck).to.be.a(\"string\");\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return previous page url information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"//check default page=1 when no page parameter is provided\r",
+											"pm.test(\"Check default page=0 when no page parameter is provided\", function () {\r",
+											"        var nextPageUrl = jsonData.info.next;\r",
+											"\r",
+											"        pm.expect(jsonData.info.prev).to.eql(null);\r",
+											"        pm.expect(nextPageUrl).satisfy(val => val.split('page=')[1] == (2));\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"//validate sort order of characters\r",
+											"pm.test(\"validate sort order of characters\", function () {\r",
+											"        eval(\"var isSortedById = \" + pm.globals.get(\"isSortedById\"));\r",
+											"        let ids = jsonData.results.map(character => character.id);\r",
+											"        pm.collectionVariables.set(\"characterIds\", ids);\r",
+											"        pm.expect(isSortedById(ids)).to.be.true;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "8e0ec6ce-d57f-4e62-85ea-c9a9669d2715",
+										"exec": [
+											"const count = pm.info.iteration;\r",
+											"\r",
+											"console.log(\"Iteration count \"+count);\r",
+											"if(count>0)\r",
+											"    pm.execution.skipRequest();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "46011802-517a1610-8a66-4a62-8735-f06dd2dc2364",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "46011802-f6feb4f9-6134-49e5-a5e2-7747277d542b"
+				}
+			],
 			"id": "46011802-18a33734-bff7-4cc7-ade9-07f691ce6ee3"
 		},
 		{
