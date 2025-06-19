@@ -478,7 +478,14 @@
 									"script": {
 										"id": "6c4d4445-edcc-4805-9e13-2f9be1f2b0ab",
 										"exec": [
+											"var responseJson = pm.response.json();\r",
 											"\r",
+											"pm.test(\"Verify that multiple characters are returned successfully\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"        var expectedCharacterId= pm.collectionVariables.get(\"CharacterId\");\r",
+											"        pm.expect(responseJson.id==expectedCharacterId);\r",
+											"\r",
+											"    });\r",
 											""
 										],
 										"type": "text/javascript",
