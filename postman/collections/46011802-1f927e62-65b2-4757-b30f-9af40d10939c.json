@@ -20,6 +20,7 @@
 										"id": "3209c6a1-f38b-49f7-a6c0-a358cb68cc99",
 										"exec": [
 											"var jsonData= null;\r",
+											"var expectedCharacterCount=pm.variables.get(\"TotalCharacters\");\r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -27,7 +28,7 @@
 											"});\r",
 											"\r",
 											"pm.test(\"Check total character count\", function () {\r",
-											"    pm.expect(jsonData.info.count).to.eql(826);\r",
+											"    pm.expect(jsonData.info.count).to.eql(expectedCharacterCount);\r",
 											"});\r",
 											"\r",
 											"\r",
