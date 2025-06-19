@@ -1171,13 +1171,39 @@
 			"item": [
 				{
 					"name": "GetCharacters-Performance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2bc9f017-d538-49d2-bbbe-fbe95c05d374",
+								"exec": [
+									"pm.test(\"Response time is under 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "46011802-b8a85687-30f4-4d39-a50d-c43e7aa5c711",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "https://{{Host}}/api/character",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"api",
+								"character"
+							]
+						}
 					},
 					"response": []
 				}
