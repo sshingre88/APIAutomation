@@ -677,11 +677,353 @@
 		},
 		{
 			"name": "Episodes",
-			"item": []
+			"item": [
+				{
+					"name": "FilterEpisodes",
+					"item": [
+						{
+							"name": "FilterEpisode",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const json = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Validate filter results\", function () {\r",
+											"    const isNegativeCase = data.name === \"FakeName\" || data.episode === \"S99E99\";\r",
+											"\r",
+											"    if (isNegativeCase) {\r",
+											"        pm.expect(json.results.length).to.eql(0);\r",
+											"    } else {\r",
+											"        pm.expect(json.results.length).to.be.above(0);\r",
+											"        pm.expect(json.results[0].name.toLowerCase()).to.include(data.name.toLowerCase());\r",
+											"        pm.expect(json.results[0].episode).to.eql(data.episode);\r",
+											"    }\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://rickandmortyapi.com/api/episode?name={{name}}&episode={{episode}}",
+									"protocol": "https",
+									"host": [
+										"rickandmortyapi",
+										"com"
+									],
+									"path": [
+										"api",
+										"episode"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{name}}"
+										},
+										{
+											"key": "episode",
+											"value": "{{episode}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "Locations",
-			"item": []
+			"item": [
+				{
+					"name": "GetAllLocations",
+					"item": [
+						{
+							"name": "GetAllLocation",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData= null;\r",
+											"var expectedCharacterCount=pm.variables.get(\"TotalLocations\");\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"     jsonData = pm.response.json();\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check total location count\", function () {\r",
+											"    pm.expect(jsonData.info.count==expectedCharacterCount);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is an integer type for pages object\", function () {\r",
+											"   if('pages' in jsonData.info){\r",
+											"        const pagesValueToCheck = jsonData.info.pages;\r",
+											"        pm.variables.set(\"AvailablePages\", pagesValueToCheck);\r",
+											"        pm.expect(Number.isInteger(pagesValueToCheck)).to.be.true;\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return pages information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is an integer type for count object\", function () {\r",
+											"   if('count' in jsonData.info){\r",
+											"        const countValueToCheck = jsonData.info.count;\r",
+											"        pm.expect(Number.isInteger(countValueToCheck)).to.be.true;\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return pages information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is of string type for next field\", function () {\r",
+											"   if('next' in jsonData.info){\r",
+											"        const countValueToCheck = jsonData.info.next;\r",
+											"        if(countValueToCheck!=null)\r",
+											"             pm.expect(countValueToCheck).to.be.a(\"string\");\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return next page url information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is of string type for prev field\", function () {\r",
+											"   if('next' in jsonData.info){\r",
+											"        const countValueToCheck = jsonData.info.prev;\r",
+											"        if(countValueToCheck!=null)\r",
+											"             pm.expect(countValueToCheck).to.be.a(\"string\");\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return previous page url information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"//check default page=1 when no page parameter is provided\r",
+											"pm.test(\"Check default page=0 when no page parameter is provided\", function () {\r",
+											"        var nextPageUrl = jsonData.info.next;\r",
+											"\r",
+											"        pm.expect(jsonData.info.prev).to.eql(null);\r",
+											"        pm.expect(nextPageUrl).satisfy(val => val.split('page=')[1] == (2));\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"//validate sort order of characters\r",
+											"pm.test(\"validate sort order of locations\", function () {\r",
+											"        eval(\"var isSortedById = \" + pm.globals.get(\"isSortedById\"));\r",
+											"        let ids = jsonData.results.map(location => location.id);\r",
+											"        pm.collectionVariables.set(\"LocationIds\", ids);\r",
+											"        pm.expect(isSortedById(ids)).to.be.true;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/location",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"location"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GetSingleLocation",
+					"item": [
+						{
+							"name": "ValidLocation",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"CharacterId\", 1);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var responseJson = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Verify that valid location is returning successful response with status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Location ID is correct\", function () {\r",
+											"  \r",
+											"     pm.expect(responseJson.id).to.eql(Number(data.expectedId));\r",
+											"\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Location name is correct.\", function () {\r",
+											"    pm.expect(responseJson.name).to.eql(data.expectedName);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Location type is correct.\", function () {\r",
+											"    pm.expect(responseJson.type).to.eql(data.expectedType);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Location has correct residents info.\", function () {\r",
+											"    pm.expect(responseJson.residents).to.be.an(\"array\").that.is.not.empty;\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/location/{{location_id}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"location",
+										"{{location_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "InvalidCharacter",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"LocationId\", -1);\r",
+											" "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify a invalid character id is returning a 404 status code with no information\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/location/{{LocationId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"location",
+										"{{LocationId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "InvalidIdType",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											" pm.test(\"Verify that an API failed gracefully when invalid type (decimal value) has passed in the request.\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"LocationId\", 9999999.01010);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/location/{{LocationId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"location",
+										"{{LocationId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "APIResources",
@@ -775,6 +1117,10 @@
 		},
 		{
 			"key": "RandomPageAccess",
+			"value": ""
+		},
+		{
+			"key": "LocationIds",
 			"value": ""
 		}
 	]

@@ -1,24 +1,24 @@
 [
   {
-	"id":1,
+	  "id":1,
     "expectedname": "Rick",
     "expectedstatus": "Alive",
     "expectedspecies": "Human",
     "expectedgender": "Male",
     "expectedCount": 20,
     "expectedCharacterName": "Rick Sanchez",
-	"expectedId": 1
+	  "expectedId": 1
 
   },
   {
-	"id":183,
+	  "id":183,
     "expectedname": "Rick",
     "expectedstatus": "Alive",
     "expectedspecies": "Human",
     "expectedgender": "Male",
     "expectedCount": 20,
     "expectedCharacterName": "Rick Sanchez",
-	"expectedId": 1
+	  "expectedId": 1
 
   }
   
