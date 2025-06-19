@@ -1167,6 +1167,11 @@
 			"id": "46011802-dc8db6f7-130a-454e-a669-f9041153abdb"
 		},
 		{
+			"name": "New Folder",
+			"item": [],
+			"id": "46011802-5ca1f91d-c459-47ab-8454-e3a4bd8b0ac8"
+		},
+		{
 			"name": "APIResources",
 			"event": [
 				{
