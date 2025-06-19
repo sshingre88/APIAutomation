@@ -654,7 +654,7 @@
 					"name": "FilterCharacters",
 					"item": [
 						{
-							"name": "New Request",
+							"name": "FilterCharacters",
 							"id": "46011802-1b16b0b5-612d-4eb4-a616-ac725c344f73",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
