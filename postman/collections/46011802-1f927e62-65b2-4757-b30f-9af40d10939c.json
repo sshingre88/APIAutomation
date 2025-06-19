@@ -746,13 +746,64 @@
 					"item": [
 						{
 							"name": "FilterEpisode",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8acdccf0-0ba9-4c58-9ab6-a844e66d4605",
+										"exec": [
+											"const json = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Validate filter results\", function () {\r",
+											"    const isNegativeCase = data.name === \"FakeName\" || data.episode === \"S99E99\";\r",
+											"\r",
+											"    if (isNegativeCase) {\r",
+											"        pm.expect(json.results.length).to.eql(0);\r",
+											"    } else {\r",
+											"        pm.expect(json.results.length).to.be.above(0);\r",
+											"        pm.expect(json.results[0].name.toLowerCase()).to.include(data.name.toLowerCase());\r",
+											"        pm.expect(json.results[0].episode).to.eql(data.episode);\r",
+											"    }\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "46011802-3ddc977a-6148-4242-af15-538b02b713f9",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "https://rickandmortyapi.com/api/episode?name={{name}}&episode={{episode}}",
+									"protocol": "https",
+									"host": [
+										"rickandmortyapi",
+										"com"
+									],
+									"path": [
+										"api",
+										"episode"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{name}}"
+										},
+										{
+											"key": "episode",
+											"value": "{{episode}}"
+										}
+									]
+								}
 							},
 							"response": []
 						}
