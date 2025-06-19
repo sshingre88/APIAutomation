@@ -287,7 +287,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "a1df09d9-7a09-430a-8f09-04659a162d2b",
+				"id": "67048678-1e96-49d4-8f87-bb09a8f67f1e",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -298,23 +298,21 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "db5396af-210e-4666-a2a4-d7af271d29ed",
+				"id": "f40f8b33-7dc5-4b78-8e11-646733485fb7",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"//Util Functions\r",
-					"\r",
-					"function isSortedById(ids) {\r",
-					"  if (!Array.isArray(ids)) return false;\r",
-					"\r",
-					"  for (let i = 1; i < ids.length; i++) {\r",
-					"    if (ids[i] < ids[i - 1]) {\r",
-					"      return false;\r",
-					"    }\r",
+					"// Collection-level script\r",
+					"function isSorted(array) {\r",
+					"  for (let i = 1; i < array.length; i++) {\r",
+					"    if (array[i] < array[i - 1]) return false;\r",
 					"  }\r",
-					"\r",
 					"  return true;\r",
-					"}"
+					"}\r",
+					"\r",
+					"// Expose globally via pm.globals.set (if needed)\r",
+					"pm.globals.set(\"isSortedFn\", isSorted.toString());\r",
+					""
 				]
 			}
 		}
