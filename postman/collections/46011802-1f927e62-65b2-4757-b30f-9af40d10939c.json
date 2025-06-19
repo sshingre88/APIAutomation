@@ -226,6 +226,8 @@
 										"id": "e2a3dd2c-1a55-436e-8c00-eed2fc8cca22",
 										"exec": [
 											"var loopCount =  pm.environment.get(\"SingleCharacterLoopCount\");\r",
+											"const iterationCountToSkipPaginationTests = pm.info.iteration;\r",
+											"\r",
 											"\r",
 											"if(loopCount==0){\r",
 											"\r",
@@ -255,11 +257,13 @@
 											"\r",
 											"}\r",
 											"\r",
-											"else if(loopCount==2){\r",
+											"else(loopCount==2){\r",
 											"    pm.collectionVariables.set(\"CharacterId\", 999999999.10);\r",
 											"    pm.environment.set(\"SingleCharacterLoopCount\",0);\r",
 											"\r",
-											"}"
+											"}\r",
+											"if(iterationCountToSkipPaginationTests > 0)\r",
+											"    pm.execution.skipRequest();"
 										],
 										"type": "text/javascript",
 										"packages": {}
