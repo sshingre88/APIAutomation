@@ -557,7 +557,7 @@
 									"script": {
 										"id": "aed1dd34-562e-45a6-912b-fe6618a28bf7",
 										"exec": [
-											"const ids = [1231,0182];\r",
+											"const ids = [1231,998998];\r",
 											"const queryStr = ids.join(\",\"); // \"Rick,Morty,Summer\"\r",
 											"pm.collectionVariables.set(\"CharacterId\", queryStr);"
 										],
