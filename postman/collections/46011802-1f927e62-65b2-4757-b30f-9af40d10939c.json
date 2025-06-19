@@ -479,7 +479,7 @@
 										"id": "6c4d4445-edcc-4805-9e13-2f9be1f2b0ab",
 										"exec": [
 											"const ids = [1,183];\r",
-											"const queryStr = names.join(\",\"); // \"Rick,Morty,Summer\"\r",
+											"const queryStr = ids.join(\",\"); // \"Rick,Morty,Summer\"\r",
 											"pm.collectionVariables.set(\"CharacterId\", queryStr);\r",
 											""
 										],
