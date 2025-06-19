@@ -225,11 +225,12 @@
 									"script": {
 										"id": "e2a3dd2c-1a55-436e-8c00-eed2fc8cca22",
 										"exec": [
-											"var loopCount =  pm.environment.get(\"SingleCharacterLoopCount\");\r",
+											"const loopCount =  pm.environment.get(\"SingleCharacterLoopCount\");\r",
 											"const iterationCountToSkipPaginationTests = pm.info.iteration;\r",
 											"\r",
+											"console.log(\"iterationCountToSkipPaginationTests \"+iterationCountToSkipPaginationTests);\r",
 											"\r",
-											"if(loopCount==0){\r",
+											"if(loopCount==0 ){\r",
 											"\r",
 											"\r",
 											"// Get the comma-separated IDs string from collection variable\r",
