@@ -1,0 +1,37 @@
+
+name: Run Postman Tests with Newman
+
+on:
+  push:
+    paths:
+      - 'WitnessAI-Assessment.postman_collection.json'
+      - '**/*.json'    # includes test data, env files
+  workflow_dispatch:
+
+jobs:
+  postman-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📦 Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: 🔧 Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: 🧪 Install Newman and HTML Reporter
+      run: |
+        npm install -g newman newman-reporter-html
+
+    - name: 🚀 Run Newman Tests with Data and Environment
+      run: |
+        mkdir -p reports
+        newman run Collections/WitnessAI-Assessment.postman_collection.json --folder "GetSingleCharacter" --iteration-data TestData/Characters.json  --environment Config/Production.postman_environment.json   --reporters cli,html --reporter-html-export ./reports/newman-report.html
+
+    - name: 📤 Upload HTML Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: newman-html-report
+        path: reports/newman-report.html
