@@ -211,6 +211,18 @@
 						"type": "text/javascript",
 						"packages": {}
 					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a0a0e3f1-81f0-4814-97be-7d769aff8047",
+						"exec": [
+							"if(pm.info.iterationCount >0)\r",
+							"    pm.test.skip();"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
 				}
 			],
 			"id": "46011802-ec63969c-55ac-49ad-ba50-7e7ebe40de24",
