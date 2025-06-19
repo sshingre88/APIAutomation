@@ -618,9 +618,9 @@
 									"script": {
 										"id": "aed1dd34-562e-45a6-912b-fe6618a28bf7",
 										"exec": [
-											"const ids = [988767678,998998];\r",
-											"const queryStr = ids.join(\",\"); // \"Rick,Morty,Summer\"\r",
-											"pm.collectionVariables.set(\"CharacterId\", queryStr);"
+											"const csv = Array.from({ length: 182 }, (_, i) => i + 1).join(\", \");\r",
+											"\r",
+											"pm.collectionVariables.set(\"CharacterId\", csv);"
 										],
 										"type": "text/javascript",
 										"packages": {}
