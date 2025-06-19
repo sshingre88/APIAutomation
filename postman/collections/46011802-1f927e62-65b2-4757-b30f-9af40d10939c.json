@@ -230,7 +230,7 @@
 											"// Get the comma-separated IDs string from collection variable\r",
 											"const idsString = pm.collectionVariables.get(\"characterIds\");\r",
 											"\r",
-											"console.log(idsString);\r",
+											"//converting character ids into string if it's not already a string. This is to handle cases where the variable might be a number or an array.\r",
 											"if (idsString && typeof idsString !== \"string\") {\r",
 											"    idsString = String(idsString);\r",
 											"}\r",
