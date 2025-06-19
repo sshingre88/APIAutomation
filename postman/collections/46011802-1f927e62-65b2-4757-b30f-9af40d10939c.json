@@ -224,7 +224,19 @@
 							},
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
 							},
 							"response": []
 						}
