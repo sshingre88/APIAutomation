@@ -87,7 +87,7 @@
 											"pm.test(\"validate sort order of characters\", function () {\r",
 											"        eval(\"var isSortedById = \" + pm.globals.get(\"isSortedById\"));\r",
 											"        let ids = jsonData.results.map(character => character.id);\r",
-											"        pm.collectionVariables.set(\"characterIds\", idsString);\r",
+											"        pm.collectionVariables.set(\"characterIds\", ids);\r",
 											"        pm.expect(isSortedById(ids)).to.be.true;\r",
 											"});\r",
 											""
@@ -362,6 +362,12 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "characterIds",
+			"value": ""
 		}
 	]
 }
