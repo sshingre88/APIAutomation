@@ -219,6 +219,20 @@
 						},
 						{
 							"name": "GetSingleCharacter",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e2a3dd2c-1a55-436e-8c00-eed2fc8cca22",
+										"exec": [
+											"pm.collectionVariables.get(\"characterIds\");\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "46011802-b631c9b4-e166-4378-b676-4b2af18c3c2c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
