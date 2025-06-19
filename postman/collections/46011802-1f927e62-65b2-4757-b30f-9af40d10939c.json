@@ -652,7 +652,20 @@
 				},
 				{
 					"name": "FilterCharacters",
-					"item": [],
+					"item": [
+						{
+							"name": "New Request",
+							"id": "46011802-1b16b0b5-612d-4eb4-a616-ac725c344f73",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
 					"id": "46011802-86fd0072-a337-44ed-a1b8-128272dcffdb"
 				}
 			],
