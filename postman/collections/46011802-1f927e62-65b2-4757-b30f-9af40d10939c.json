@@ -15,7 +15,7 @@
 							"name": "GetSingleCharacter",
 							"item": [
 								{
-									"name": "GetValidCharacter",
+									"name": "ValidCharacter",
 									"id": "46011802-e8dc7522-c456-4289-a155-adce47d3864d",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -27,7 +27,7 @@
 									"response": []
 								},
 								{
-									"name": "GetInvalidCharacter",
+									"name": "InvalidCharacter",
 									"id": "46011802-39b7f7b4-7fd2-4dd6-b987-7b38b93407cb",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
