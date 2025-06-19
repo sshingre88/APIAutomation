@@ -3,6 +3,7 @@
 
 This Postman collection is designed to test the [Rick and Morty API](https://rickandmortyapi.com/) with various test cases, including valid, invalid, pagination, and filter scenarios. It supports both **positive and negative** tests for characters, pagination, multiple ID fetches, and filters.
 Use WitnessAI-Assessment.postman_collection from Collections folder.
+Collection covers functional, performance and security tests.
 
 ---
 
@@ -141,8 +142,10 @@ You can run specific folders within the collection using the `--folder` option i
 Sample newman commads are as follows:
 
 ```bash
-# Run APIResources (Root-level)
-newman run WitnessAI-Assessment.postman_collection.json --folder "APIResources"
+# Run GetAllCharacters (Root-level)
+>newman run Collections\WitnessAI-Assessment.postman_collection.json --folder "GetAllCharacters" --environment Config/Production.postman_environment.json --reporters cli,html --reporter-html-export ./reports/newman-report.html
+
+>newman run Collections\WitnessAI-Assessment.postman_collection.json --folder "APIResources" --environment Config/Production.postman_environment.json --reporters cli,html --reporter-html-export ./reports/newman-report.html
 
 # Run Characters > GetSingleCharacter (At individual folder level).
 newman run Collections/WitnessAI-Assessment.postman_collection.json --folder "GetSingleCharacter" --iteration-data TestData/Characters.json  --environment Config/Production.postman_environment.json   --reporters cli,html --reporter-html-export ./reports/newman-report.html
@@ -151,5 +154,14 @@ newman run Collections/WitnessAI-Assessment.postman_collection.json --folder "Ge
 newman run Collections/WitnessAI-Assessment.postman_collection.json --folder "GetAllLocations"  --environment Config/Production.postman_environment.json   --reporters cli,html --reporter-html-export ./reports/newman-report.html
 
 ```
+
+## Run performance test
+Newman itself doesn't simulate full-scale load testing but you can loop the collection to simulate concurrent requests.
+Please refer below command.
+
+newman run Collections/WitnessAI-Assessment.postman_collection.json --folder "PerformanceTests" --iteration-count 10 --environment Config/Production.postman_environment.json --reporters cli,html --reporter-html-export ./reports/newman-report.html
+
+## Run Security Tests
+newman run Collections/WitnessAI-Assessment.postman_collection.json --folder "SecurityTests" --environment Config/Production.postman_environment.json --reporters cli,html --reporter-html-export ./reports/newman-report.html
 
 > 📌 Folder names are case-sensitive and must match the collection exactly.
