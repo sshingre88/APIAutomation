@@ -313,6 +313,17 @@
 											"script": {
 												"id": "236ef910-a665-4052-9a5f-5c187382fbc0",
 												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "67925287-6cbe-4d4b-9dfa-9033b676f282",
+												"exec": [
 													"pm.variables.set(\"RandomPageAccess\", 12);\r",
 													""
 												],
