@@ -375,13 +375,45 @@
 								},
 								{
 									"name": "EndPage",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "7cab462b-0a73-4df2-9abd-7570d51046b3",
+												"exec": [
+													"  var maxAvailablePages=  pm.variables.get(\"AvailablePages\");\r",
+													"  pm.variables.set(\"RandomPageAccess\", maxAvailablePages);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "46011802-0bfec5ef-b2c4-44d5-a682-23242f16cc2f",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
 										"method": "GET",
-										"header": []
+										"header": [],
+										"url": {
+											"raw": "https://{{Host}}/api/character?page={{RandomPageAccess}}",
+											"protocol": "https",
+											"host": [
+												"{{Host}}"
+											],
+											"path": [
+												"api",
+												"character"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "{{RandomPageAccess}}"
+												}
+											]
+										}
 									},
 									"response": []
 								}
