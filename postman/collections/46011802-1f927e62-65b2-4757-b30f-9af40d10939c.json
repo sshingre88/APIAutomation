@@ -950,7 +950,7 @@
 									"script": {
 										"id": "8cf9bdfd-112d-48b7-adbb-378421e96961",
 										"exec": [
-											"pm.collectionVariables.set(\"CharacterId\", -1);\r",
+											"pm.collectionVariables.set(\"LocationId\", -1);\r",
 											" "
 										],
 										"type": "text/javascript",
@@ -979,7 +979,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"raw": "https://{{Host}}/api/character/{{LocationId}}",
 									"protocol": "https",
 									"host": [
 										"{{Host}}"
@@ -987,7 +987,7 @@
 									"path": [
 										"api",
 										"character",
-										"{{CharacterId}}"
+										"{{LocationId}}"
 									]
 								}
 							},
