@@ -742,8 +742,21 @@
 			"name": "Episodes",
 			"item": [
 				{
-					"name": "New Folder",
-					"item": [],
+					"name": "FilterEpisodes",
+					"item": [
+						{
+							"name": "New Request",
+							"id": "46011802-3ddc977a-6148-4242-af15-538b02b713f9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
 					"id": "46011802-77364c6c-f38a-4645-a925-d1143e26c4f2"
 				}
 			],
