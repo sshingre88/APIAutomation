@@ -485,7 +485,7 @@
 											"        pm.response.to.have.status(200);\r",
 											"        const actualIds = responseJson.map(char => char.id);\r",
 											"\r",
-											"    pm.expect(actualIds).to.eql(expectedIds);\r",
+											"    pm.expect(actualIds).to.eql(expectedCharacterIds);\r",
 											"\r",
 											"    });\r",
 											""
