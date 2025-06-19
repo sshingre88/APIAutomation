@@ -257,7 +257,7 @@
 											"\r",
 											"}\r",
 											"\r",
-											"else(loopCount==2){\r",
+											"else{\r",
 											"    pm.collectionVariables.set(\"CharacterId\", 999999999.10);\r",
 											"    pm.environment.set(\"SingleCharacterLoopCount\",0);\r",
 											"\r",
