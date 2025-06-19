@@ -901,6 +901,8 @@
 											"\r",
 											"pm.test(\"Location ID is correct\", function () {\r",
 											"    conole.log(\"expected location id\"+pm.iterationData.location_id);\r",
+											"    conole.log(\"Actual location id\"+pm.iterationData.location_id);\r",
+											"\r",
 											"    pm.expect(responseJson.id).to.eql(pm.iterationData.location_id);\r",
 											"});\r",
 											"\r",
