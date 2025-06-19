@@ -1123,6 +1123,11 @@
 			"id": "46011802-18a33734-bff7-4cc7-ade9-07f691ce6ee3"
 		},
 		{
+			"name": "SecurityTests",
+			"item": [],
+			"id": "46011802-dc8db6f7-130a-454e-a669-f9041153abdb"
+		},
+		{
 			"name": "APIResources",
 			"event": [
 				{
@@ -1213,18 +1218,22 @@
 	],
 	"variable": [
 		{
+			"id": "8512e3cd-001d-47e2-9ca7-88fc9a1f0e3b",
 			"key": "characterIds",
 			"value": ""
 		},
 		{
+			"id": "4b8af541-aac9-4261-80cd-32d5c72f9832",
 			"key": "CharacterId",
 			"value": ""
 		},
 		{
+			"id": "2eb2eaf1-0d97-4c66-8da0-eed87fd77f33",
 			"key": "RandomPageAccess",
 			"value": ""
 		},
 		{
+			"id": "1afacd95-5407-4ea1-bee1-07d6f225a503",
 			"key": "LocationIds",
 			"value": ""
 		}
