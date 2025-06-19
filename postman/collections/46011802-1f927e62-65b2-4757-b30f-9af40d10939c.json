@@ -279,7 +279,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "67048678-1e96-49d4-8f87-bb09a8f67f1e",
+				"id": "27cfb0fc-464e-4070-a942-af89ffebaf89",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -290,12 +290,12 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "f40f8b33-7dc5-4b78-8e11-646733485fb7",
+				"id": "7b35062f-4809-4583-b86b-65051edc84e1",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					"// Collection-level script\r",
-					"function isSorted(array) {\r",
+					"function isSortedById(array) {\r",
 					"  for (let i = 1; i < array.length; i++) {\r",
 					"    if (array[i] < array[i - 1]) return false;\r",
 					"  }\r",
@@ -303,7 +303,7 @@
 					"}\r",
 					"\r",
 					"// Expose globally via pm.globals.set (if needed)\r",
-					"pm.globals.set(\"isSortedFn\", isSorted.toString());\r",
+					"pm.globals.set(\"isSortedByIdFn\", isSortedById.toString());\r",
 					""
 				]
 			}
