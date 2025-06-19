@@ -116,7 +116,7 @@
 											"var currentPage=  pm.variables.get(\"RandomPageAccess\");\r",
 											"var maxAvailablePages=pm.variables.get(\"AvailablePages\");\r",
 											"   \r",
-											"   pm.test(\"Pagination Tests\", function () {\r",
+											"   pm.test(\"Pagination Tests \"+currentPage, function () {\r",
 											"   if(pm.response.code==200){\r",
 											"        var jsonData = pm.response.json();\r",
 											"        var nextPageUrl = jsonData.info.next;\r",
