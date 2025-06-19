@@ -900,7 +900,7 @@
 											"});\r",
 											"\r",
 											"pm.test(\"Location ID is correct\", function () {\r",
-											"    console.log(\"expected location id\"+iterationData.location_id);\r",
+											"    console.log(\"expected location id\"+iterationData.expectedId);\r",
 											"    console.log(\"Actual location id\"+responseJson.id);\r",
 											"\r",
 											"    pm.expect(responseJson.id).to.eql(pm.iterationData.location_id);\r",
