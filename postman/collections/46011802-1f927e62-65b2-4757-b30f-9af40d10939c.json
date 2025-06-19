@@ -1170,7 +1170,7 @@
 			"name": "PerformanceTests",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "GetCharacters-Performance",
 					"id": "46011802-b8a85687-30f4-4d39-a50d-c43e7aa5c711",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
