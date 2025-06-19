@@ -280,7 +280,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "f07d8179-dd37-4eb1-866f-bebdbd26264e",
+				"id": "69108604-0669-4d18-83ed-418d5ea123f8",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -291,13 +291,14 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ebf2f1f5-9987-4408-96a7-d5a2dc290e95",
+				"id": "8c0c98b9-5c20-45ca-961c-ca3e6b97563f",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					"// Collection-level script\r",
 					"function isSortedById(array) {\r",
 					"  for (let i = 1; i < array.length; i++) {\r",
+					"    console.log(array[i]);\r",
 					"    if (array[i] < array[i - 1]) return false;\r",
 					"  }\r",
 					"  return true;\r",
