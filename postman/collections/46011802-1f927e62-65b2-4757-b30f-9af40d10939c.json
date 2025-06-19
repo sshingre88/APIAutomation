@@ -874,7 +874,7 @@
 					"name": "GetSingleLocation",
 					"item": [
 						{
-							"name": "ValidCharacter",
+							"name": "ValidLocation",
 							"event": [
 								{
 									"listen": "prerequest",
