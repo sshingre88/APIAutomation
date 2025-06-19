@@ -115,6 +115,10 @@
 										"exec": [
 											"var currentPage=  pm.variables.get(\"RandomPageAccess\");\r",
 											"var maxAvailablePages=pm.variables.get(\"AvailablePages\");\r",
+											"var scenarioDescription=pm.variables.get(\"ScenarioDescription\");\r",
+											"\r",
+											"\r",
+											"\r",
 											"   \r",
 											"   pm.test(\"Pagination Tests \"+currentPage, function () {\r",
 											"   if(pm.response.code==200){\r",
