@@ -7,448 +7,447 @@
 	"item": [
 		{
 			"name": "TestScenarios",
+			"item": [],
+			"id": "46011802-477cdad7-d943-45ef-8453-83fff6ed6bc2"
+		},
+		{
+			"name": "Characters",
 			"item": [
 				{
-					"name": "Characters",
+					"name": "GetSingleCharacter",
 					"item": [
 						{
-							"name": "GetSingleCharacter",
-							"item": [
+							"name": "ValidCharacter",
+							"event": [
 								{
-									"name": "ValidCharacter",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"id": "e225e66d-8bdc-42f9-b526-bb686e9fbe4d",
-												"exec": [
-													"pm.collectionVariables.set(\"CharacterId\", 1);\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"id": "04688a00-d343-4962-87f4-beb12c120e64",
-												"exec": [
-													"pm.test(\"Verify a valid character id is returning a 200 status code and correct information\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"        var responseJson = pm.response.json();\r",
-													"        var expectedCharacterId= pm.collectionVariables.get(\"CharacterId\");\r",
-													"        pm.expect(responseJson.id==expectedCharacterId);\r",
-													"\r",
-													"    });"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "46011802-e8dc7522-c456-4289-a155-adce47d3864d",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "https://{{Host}}/api/character/{{CharacterId}}",
-											"protocol": "https",
-											"host": [
-												"{{Host}}"
-											],
-											"path": [
-												"api",
-												"character",
-												"{{CharacterId}}"
-											]
-										}
-									},
-									"response": []
+									"listen": "prerequest",
+									"script": {
+										"id": "e225e66d-8bdc-42f9-b526-bb686e9fbe4d",
+										"exec": [
+											"pm.collectionVariables.set(\"CharacterId\", 1);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								},
 								{
-									"name": "InvalidCharacter",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"id": "8cf9bdfd-112d-48b7-adbb-378421e96961",
-												"exec": [
-													"pm.collectionVariables.set(\"CharacterId\", -1);\r",
-													" "
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"id": "f952554a-5545-435f-bf74-a054e9d96338",
-												"exec": [
-													"pm.test(\"Verify a invalid character id is returning a 404 status code with no information\", function () {\r",
-													"        pm.response.to.have.status(404);\r",
-													"    });"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "46011802-39b7f7b4-7fd2-4dd6-b987-7b38b93407cb",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "https://{{Host}}/api/character/{{CharacterId}}",
-											"protocol": "https",
-											"host": [
-												"{{Host}}"
-											],
-											"path": [
-												"api",
-												"character",
-												"{{CharacterId}}"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "InvalidIdType",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "05a11044-6bd9-45cb-8009-b8888fb53f84",
-												"exec": [
-													" pm.test(\"Verify that an API failed gracefully when invalid type (decimal value) has passed in the request.\", function () {\r",
-													"        pm.response.to.have.status(404);\r",
-													"    });"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										},
-										{
-											"listen": "prerequest",
-											"script": {
-												"id": "97611cd0-b392-4e14-9871-ba17e074853f",
-												"exec": [
-													"pm.collectionVariables.set(\"CharacterId\", 9999999.01010);\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "46011802-5f03d1c1-f7db-430e-ac3a-b4477cecb843",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "https://{{Host}}/api/character/{{CharacterId}}",
-											"protocol": "https",
-											"host": [
-												"{{Host}}"
-											],
-											"path": [
-												"api",
-												"character",
-												"{{CharacterId}}"
-											]
-										}
-									},
-									"response": []
+									"listen": "test",
+									"script": {
+										"id": "04688a00-d343-4962-87f4-beb12c120e64",
+										"exec": [
+											"pm.test(\"Verify a valid character id is returning a 200 status code and correct information\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"        var responseJson = pm.response.json();\r",
+											"        var expectedCharacterId= pm.collectionVariables.get(\"CharacterId\");\r",
+											"        pm.expect(responseJson.id==expectedCharacterId);\r",
+											"\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
-							"id": "46011802-c8b461a1-e114-4e0a-9104-880193359954"
+							"id": "46011802-e8dc7522-c456-4289-a155-adce47d3864d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
+							},
+							"response": []
 						},
 						{
-							"name": "GetAllCharacters",
-							"item": [
+							"name": "InvalidCharacter",
+							"event": [
 								{
-									"name": "GetAllCharacters",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "3209c6a1-f38b-49f7-a6c0-a358cb68cc99",
-												"exec": [
-													"var jsonData= null;\r",
-													"var expectedCharacterCount=pm.variables.get(\"TotalCharacters\");\r",
-													"\r",
-													"pm.test(\"Status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"     jsonData = pm.response.json();\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check total character count\", function () {\r",
-													"    pm.expect(jsonData.info.count==expectedCharacterCount);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check if the value is an integer type for pages object\", function () {\r",
-													"   if('pages' in jsonData.info){\r",
-													"        const pagesValueToCheck = jsonData.info.pages;\r",
-													"        pm.variables.set(\"AvailablePages\", pagesValueToCheck);\r",
-													"        pm.expect(Number.isInteger(pagesValueToCheck)).to.be.true;\r",
-													"   }\r",
-													"   else\r",
-													"     pm.expect.fail(\"This test failed because an info object doesn't return pages information.\");\r",
-													"    \r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check if the value is an integer type for count object\", function () {\r",
-													"   if('count' in jsonData.info){\r",
-													"        const countValueToCheck = jsonData.info.count;\r",
-													"        pm.expect(Number.isInteger(countValueToCheck)).to.be.true;\r",
-													"   }\r",
-													"   else\r",
-													"     pm.expect.fail(\"This test failed because an info object doesn't return pages information.\");\r",
-													"    \r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check if the value is of string type for next field\", function () {\r",
-													"   if('next' in jsonData.info){\r",
-													"        const countValueToCheck = jsonData.info.next;\r",
-													"        if(countValueToCheck!=null)\r",
-													"             pm.expect(countValueToCheck).to.be.a(\"string\");\r",
-													"   }\r",
-													"   else\r",
-													"     pm.expect.fail(\"This test failed because an info object doesn't return next page url information.\");\r",
-													"    \r",
-													"});\r",
-													"\r",
-													"pm.test(\"Check if the value is of string type for prev field\", function () {\r",
-													"   if('next' in jsonData.info){\r",
-													"        const countValueToCheck = jsonData.info.prev;\r",
-													"        if(countValueToCheck!=null)\r",
-													"             pm.expect(countValueToCheck).to.be.a(\"string\");\r",
-													"   }\r",
-													"   else\r",
-													"     pm.expect.fail(\"This test failed because an info object doesn't return previous page url information.\");\r",
-													"    \r",
-													"});\r",
-													"\r",
-													"//check default page=1 when no page parameter is provided\r",
-													"pm.test(\"Check default page=0 when no page parameter is provided\", function () {\r",
-													"        var nextPageUrl = jsonData.info.next;\r",
-													"\r",
-													"        pm.expect(jsonData.info.prev).to.eql(null);\r",
-													"        pm.expect(nextPageUrl).satisfy(val => val.split('page=')[1] == (2));\r",
-													"    \r",
-													"});\r",
-													"\r",
-													"//validate sort order of characters\r",
-													"pm.test(\"validate sort order of characters\", function () {\r",
-													"        eval(\"var isSortedById = \" + pm.globals.get(\"isSortedById\"));\r",
-													"        let ids = jsonData.results.map(character => character.id);\r",
-													"        pm.collectionVariables.set(\"characterIds\", ids);\r",
-													"        pm.expect(isSortedById(ids)).to.be.true;\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										},
-										{
-											"listen": "prerequest",
-											"script": {
-												"id": "8e0ec6ce-d57f-4e62-85ea-c9a9669d2715",
-												"exec": [
-													"const count = pm.info.iteration;\r",
-													"\r",
-													"console.log(\"Iteration count \"+count);\r",
-													"if(count>0)\r",
-													"    pm.execution.skipRequest();"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "46011802-9b6fb763-a6b8-4435-a7d9-ca218c0c162d",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "https://{{Host}}/api/character",
-											"protocol": "https",
-											"host": [
-												"{{Host}}"
-											],
-											"path": [
-												"api",
-												"character"
-											]
-										}
-									},
-									"response": []
-								}
-							],
-							"id": "46011802-031587cb-16d9-4843-95b7-0d23b4ae65ae"
-						},
-						{
-							"name": "Pagination",
-							"item": [
-								{
-									"name": "MiddlePage",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "236ef910-a665-4052-9a5f-5c187382fbc0",
-												"exec": [
-													"var currentPage=pm.variables.get(\"RandomPageAccess\");\r",
-													"\r",
-													"pm.test(\"Verify that pagination has expected previous and next links.\", function () {\r",
-													"    var jsonData = pm.response.json();\r",
-													"    var nextPageUrl;\r",
-													"    var prevPageUrl;\r",
-													"   \r",
-													"    nextPageUrl = jsonData.info.next;\r",
-													"    prevPageUrl=jsonData.info.prev;\r",
-													"\r",
-													"    pm.expect(nextPageUrl).satisfy(val => val.split('page=')[1] == (currentPage+1));\r",
-													"    pm.expect(prevPageUrl).satisfy(val => val.split('page=')[1] == (currentPage-1));\r",
-													"    \r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										},
-										{
-											"listen": "prerequest",
-											"script": {
-												"id": "67925287-6cbe-4d4b-9dfa-9033b676f282",
-												"exec": [
-													"pm.collectionVariables.set(\"RandomPageAccess\", 12);\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "46011802-0dc1abc5-7df3-4eab-8f69-000c2e7acea5",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "https://{{Host}}/api/character?page={{RandomPageAccess}}",
-											"protocol": "https",
-											"host": [
-												"{{Host}}"
-											],
-											"path": [
-												"api",
-												"character"
-											],
-											"query": [
-												{
-													"key": "page",
-													"value": "{{RandomPageAccess}}"
-												}
-											]
-										}
-									},
-									"response": []
+									"listen": "prerequest",
+									"script": {
+										"id": "8cf9bdfd-112d-48b7-adbb-378421e96961",
+										"exec": [
+											"pm.collectionVariables.set(\"CharacterId\", -1);\r",
+											" "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								},
 								{
-									"name": "EndPage",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"id": "7cab462b-0a73-4df2-9abd-7570d51046b3",
-												"exec": [
-													"pm.collectionVariables.set(\"RandomPageAccess\", 42);\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"id": "7c83ea19-284f-44cf-9c9f-ebceaea2a7d5",
-												"exec": [
-													"var currentPage=pm.variables.get(\"RandomPageAccess\");\r",
-													"\r",
-													"pm.test(\"Verify that pagination has expected previous and next links.\", function () {\r",
-													"    var jsonData = pm.response.json();\r",
-													"    var nextPageUrl;\r",
-													"    var prevPageUrl;\r",
-													"   \r",
-													"    nextPageUrl = jsonData.info.next;\r",
-													"    prevPageUrl=jsonData.info.prev;\r",
-													"\r",
-													"    pm.expect(jsonData.info.next).to.eql(null);\r",
-													"    pm.expect(prevPageUrl).satisfy(val => val.split('page=')[1] == (currentPage-1));\r",
-													"\r",
-													"    \r",
-													"});"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "46011802-0bfec5ef-b2c4-44d5-a682-23242f16cc2f",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "https://{{Host}}/api/character?page={{RandomPageAccess}}",
-											"protocol": "https",
-											"host": [
-												"{{Host}}"
-											],
-											"path": [
-												"api",
-												"character"
-											],
-											"query": [
-												{
-													"key": "page",
-													"value": "{{RandomPageAccess}}"
-												}
-											]
-										}
-									},
-									"response": []
+									"listen": "test",
+									"script": {
+										"id": "f952554a-5545-435f-bf74-a054e9d96338",
+										"exec": [
+											"pm.test(\"Verify a invalid character id is returning a 404 status code with no information\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
-							"id": "46011802-1e4858c3-49a6-493b-8ffb-9eae5aa0bb2c"
+							"id": "46011802-39b7f7b4-7fd2-4dd6-b987-7b38b93407cb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "InvalidIdType",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "05a11044-6bd9-45cb-8009-b8888fb53f84",
+										"exec": [
+											" pm.test(\"Verify that an API failed gracefully when invalid type (decimal value) has passed in the request.\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "97611cd0-b392-4e14-9871-ba17e074853f",
+										"exec": [
+											"pm.collectionVariables.set(\"CharacterId\", 9999999.01010);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "46011802-5f03d1c1-f7db-430e-ac3a-b4477cecb843",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
+							},
+							"response": []
 						}
 					],
-					"id": "46011802-cb61758c-00f1-4631-8362-2bc154fd43a9"
+					"id": "46011802-c8b461a1-e114-4e0a-9104-880193359954"
+				},
+				{
+					"name": "GetAllCharacters",
+					"item": [
+						{
+							"name": "GetAllCharacters",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3209c6a1-f38b-49f7-a6c0-a358cb68cc99",
+										"exec": [
+											"var jsonData= null;\r",
+											"var expectedCharacterCount=pm.variables.get(\"TotalCharacters\");\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"     jsonData = pm.response.json();\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check total character count\", function () {\r",
+											"    pm.expect(jsonData.info.count==expectedCharacterCount);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is an integer type for pages object\", function () {\r",
+											"   if('pages' in jsonData.info){\r",
+											"        const pagesValueToCheck = jsonData.info.pages;\r",
+											"        pm.variables.set(\"AvailablePages\", pagesValueToCheck);\r",
+											"        pm.expect(Number.isInteger(pagesValueToCheck)).to.be.true;\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return pages information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is an integer type for count object\", function () {\r",
+											"   if('count' in jsonData.info){\r",
+											"        const countValueToCheck = jsonData.info.count;\r",
+											"        pm.expect(Number.isInteger(countValueToCheck)).to.be.true;\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return pages information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is of string type for next field\", function () {\r",
+											"   if('next' in jsonData.info){\r",
+											"        const countValueToCheck = jsonData.info.next;\r",
+											"        if(countValueToCheck!=null)\r",
+											"             pm.expect(countValueToCheck).to.be.a(\"string\");\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return next page url information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is of string type for prev field\", function () {\r",
+											"   if('next' in jsonData.info){\r",
+											"        const countValueToCheck = jsonData.info.prev;\r",
+											"        if(countValueToCheck!=null)\r",
+											"             pm.expect(countValueToCheck).to.be.a(\"string\");\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return previous page url information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"//check default page=1 when no page parameter is provided\r",
+											"pm.test(\"Check default page=0 when no page parameter is provided\", function () {\r",
+											"        var nextPageUrl = jsonData.info.next;\r",
+											"\r",
+											"        pm.expect(jsonData.info.prev).to.eql(null);\r",
+											"        pm.expect(nextPageUrl).satisfy(val => val.split('page=')[1] == (2));\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"//validate sort order of characters\r",
+											"pm.test(\"validate sort order of characters\", function () {\r",
+											"        eval(\"var isSortedById = \" + pm.globals.get(\"isSortedById\"));\r",
+											"        let ids = jsonData.results.map(character => character.id);\r",
+											"        pm.collectionVariables.set(\"characterIds\", ids);\r",
+											"        pm.expect(isSortedById(ids)).to.be.true;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "8e0ec6ce-d57f-4e62-85ea-c9a9669d2715",
+										"exec": [
+											"const count = pm.info.iteration;\r",
+											"\r",
+											"console.log(\"Iteration count \"+count);\r",
+											"if(count>0)\r",
+											"    pm.execution.skipRequest();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "46011802-9b6fb763-a6b8-4435-a7d9-ca218c0c162d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "46011802-031587cb-16d9-4843-95b7-0d23b4ae65ae"
+				},
+				{
+					"name": "Pagination",
+					"item": [
+						{
+							"name": "MiddlePage",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "236ef910-a665-4052-9a5f-5c187382fbc0",
+										"exec": [
+											"var currentPage=pm.variables.get(\"RandomPageAccess\");\r",
+											"\r",
+											"pm.test(\"Verify that pagination has expected previous and next links.\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var nextPageUrl;\r",
+											"    var prevPageUrl;\r",
+											"   \r",
+											"    nextPageUrl = jsonData.info.next;\r",
+											"    prevPageUrl=jsonData.info.prev;\r",
+											"\r",
+											"    pm.expect(nextPageUrl).satisfy(val => val.split('page=')[1] == (currentPage+1));\r",
+											"    pm.expect(prevPageUrl).satisfy(val => val.split('page=')[1] == (currentPage-1));\r",
+											"    \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "67925287-6cbe-4d4b-9dfa-9033b676f282",
+										"exec": [
+											"pm.collectionVariables.set(\"RandomPageAccess\", 12);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "46011802-0dc1abc5-7df3-4eab-8f69-000c2e7acea5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character?page={{RandomPageAccess}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "{{RandomPageAccess}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "EndPage",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "7cab462b-0a73-4df2-9abd-7570d51046b3",
+										"exec": [
+											"pm.collectionVariables.set(\"RandomPageAccess\", 42);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "7c83ea19-284f-44cf-9c9f-ebceaea2a7d5",
+										"exec": [
+											"var currentPage=pm.variables.get(\"RandomPageAccess\");\r",
+											"\r",
+											"pm.test(\"Verify that pagination has expected previous and next links.\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var nextPageUrl;\r",
+											"    var prevPageUrl;\r",
+											"   \r",
+											"    nextPageUrl = jsonData.info.next;\r",
+											"    prevPageUrl=jsonData.info.prev;\r",
+											"\r",
+											"    pm.expect(jsonData.info.next).to.eql(null);\r",
+											"    pm.expect(prevPageUrl).satisfy(val => val.split('page=')[1] == (currentPage-1));\r",
+											"\r",
+											"    \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "46011802-0bfec5ef-b2c4-44d5-a682-23242f16cc2f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character?page={{RandomPageAccess}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "{{RandomPageAccess}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "46011802-1e4858c3-49a6-493b-8ffb-9eae5aa0bb2c"
 				}
 			],
-			"id": "46011802-477cdad7-d943-45ef-8453-83fff6ed6bc2"
+			"id": "46011802-cb61758c-00f1-4631-8362-2bc154fd43a9"
 		},
 		{
 			"name": "APIResources",
