@@ -1124,7 +1124,20 @@
 		},
 		{
 			"name": "SecurityTests",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "46011802-89ba6491-9aef-430e-8c6b-6d32153f5ff0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "46011802-dc8db6f7-130a-454e-a669-f9041153abdb"
 		},
 		{
