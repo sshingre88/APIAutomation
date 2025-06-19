@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "46011802-1f927e62-65b2-4757-b30f-9af40d10939c",
 		"name": "WitnessAI-Assessment",
-		"description": "StartFragmentThis Postman collection is designed to test the [Rick and Morty API](https://rickandmortyapi.com/) with various test cases, including valid, invalid, pagination, and filter scenarios. It supports both **positive and negative** tests for characters, pagination, multiple ID fetches, and filters.EndFragment",
+		"description": "This Postman collection is designed to test the [Rick and Morty API](https://rickandmortyapi.com/) with various test cases, including valid, invalid, pagination, and filter scenarios. It supports both **positive and negative** tests for characters, pagination, multiple ID fetches, and filters.EndFragment",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
