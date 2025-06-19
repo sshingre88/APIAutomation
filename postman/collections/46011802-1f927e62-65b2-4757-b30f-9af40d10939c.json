@@ -307,13 +307,44 @@
 							"item": [
 								{
 									"name": "MiddlePage",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "236ef910-a665-4052-9a5f-5c187382fbc0",
+												"exec": [
+													"pm.variables.set(\"RandomPageAccess\", 12);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "46011802-0dc1abc5-7df3-4eab-8f69-000c2e7acea5",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
 										"method": "GET",
-										"header": []
+										"header": [],
+										"url": {
+											"raw": "https://{{Host}}/api/character?page={{RandomPageAccess}}",
+											"protocol": "https",
+											"host": [
+												"{{Host}}"
+											],
+											"path": [
+												"api",
+												"character"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "{{RandomPageAccess}}"
+												}
+											]
+										}
 									},
 									"response": []
 								}
