@@ -253,6 +253,11 @@
 											"else if(loopCount==1){\r",
 											"    pm.collectionVariables.set(\"CharacterId\", -1);\r",
 											"\r",
+											"}\r",
+											"\r",
+											"else if(loopCount==1){\r",
+											"    pm.collectionVariables.set(\"CharacterId\", 999999999.10);\r",
+											"\r",
 											"}"
 										],
 										"type": "text/javascript",
