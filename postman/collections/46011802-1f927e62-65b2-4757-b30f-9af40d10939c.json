@@ -225,16 +225,9 @@
 									"script": {
 										"id": "e2a3dd2c-1a55-436e-8c00-eed2fc8cca22",
 										"exec": [
+											"var loopCount =  pm.environment.get(\"SingleCharacterLoopCount\");\r",
 											"\r",
-											"let count = pm.info.iteration;\r",
-											"console.log(count);\r",
-											"\r",
-											"\r",
-											"\r",
-											"\r",
-											"\r",
-											"\r",
-											"\r",
+											"if(loopCount==0){\r",
 											"\r",
 											"\r",
 											"// Get the comma-separated IDs string from collection variable\r",
@@ -255,7 +248,7 @@
 											"\r",
 											"// Optionally set it as another collection variable\r",
 											"pm.collectionVariables.set(\"CharacterId\", firstId);\r",
-											""
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
