@@ -484,8 +484,7 @@
 											"pm.test(\"Verify that multiple characters are returned successfully\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
 											"        const actualIds = responseJson.map(char => char.id);\r",
-											"\r",
-											"    pm.expect(actualIds).to.eql(expectedCharacterIds);\r",
+											"        pm.expect(actualIds).to.eql(expectedCharacterIds);\r",
 											"\r",
 											"    });\r",
 											""
