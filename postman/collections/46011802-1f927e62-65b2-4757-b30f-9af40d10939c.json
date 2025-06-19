@@ -92,7 +92,7 @@
 											"\r",
 											"//validate sort order of characters\r",
 											"pm.test(\"validate sort order of characters\", function () {\r",
-											"        let ids = jsonData.results.map(results => id);\r",
+											"        let ids = response.results.map(character => character.id);\r",
 											"        pm.expect(isSorted(ids)).to.be.true;\r",
 											"\r",
 											"});\r",
