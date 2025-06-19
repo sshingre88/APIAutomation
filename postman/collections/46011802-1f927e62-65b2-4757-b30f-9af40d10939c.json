@@ -13,7 +13,20 @@
 					"item": [
 						{
 							"name": "GetSingleCharacter",
-							"item": [],
+							"item": [
+								{
+									"name": "GetValidCharacter",
+									"id": "46011802-e8dc7522-c456-4289-a155-adce47d3864d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								}
+							],
 							"id": "46011802-c8b461a1-e114-4e0a-9104-880193359954"
 						},
 						{
