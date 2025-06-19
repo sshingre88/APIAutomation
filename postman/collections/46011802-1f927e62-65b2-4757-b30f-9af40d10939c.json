@@ -36,13 +36,15 @@
 									"script": {
 										"id": "04688a00-d343-4962-87f4-beb12c120e64",
 										"exec": [
+											"var responseJson = pm.response.json();\r",
+											"\r",
 											"pm.test(\"Verify a valid character id is returning a 200 status code and correct information\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
-											"        var responseJson = pm.response.json();\r",
 											"        var expectedCharacterId= pm.collectionVariables.get(\"CharacterId\");\r",
 											"        pm.expect(responseJson.id==expectedCharacterId);\r",
 											"\r",
-											"    });"
+											"    });\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
