@@ -471,7 +471,7 @@
 					"name": "GetMultipleCharacters",
 					"item": [
 						{
-							"name": "New Request",
+							"name": "GetMultipleCharacters",
 							"id": "46011802-f467a4e8-2480-4c27-97ef-3b1e8289fb59",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
