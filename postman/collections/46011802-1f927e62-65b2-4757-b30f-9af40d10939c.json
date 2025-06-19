@@ -274,9 +274,14 @@
 									"script": {
 										"id": "1670dd67-8b61-44ea-895a-51ced97aecd3",
 										"exec": [
-											"var loopCount =  pm.environment.get(\"SingleCharacterLoopCount\");\r",
+											"let loopCount =  pm.environment.get(\"SingleCharacterLoopCount\");\r",
+											"let counter = parseInt(pm.variables.get(\"loopCounter\") || \"0\");\r",
+											"let names = [\"Alice\", \"Bob\", \"Charlie\", \"Dave\", \"Eve\"];\r",
+											"\r",
+											"loopCount++;\r",
 											"\r",
 											"while (loopCount<3){\r",
+											"\r",
 											"if(loopCount==0){\r",
 											"        pm.test(\"Verify a valid character id is returning a 200 status code and correct information\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
