@@ -28,7 +28,7 @@
 											"});\r",
 											"\r",
 											"pm.test(\"Check total character count\", function () {\r",
-											"    pm.expect(jsonData.info.count).to.eql(expectedCharacterCount);\r",
+											"    pm.expect(jsonData.info.count==expectedCharacterCount);\r",
 											"});\r",
 											"\r",
 											"\r",
