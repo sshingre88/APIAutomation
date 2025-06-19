@@ -113,7 +113,7 @@
 									"script": {
 										"id": "2bd58cd5-d0a7-4ce7-b3f7-f59a6e686009",
 										"exec": [
-											" var currentPage=  pm.variables.get(\"RandomPageAccess\");\r",
+											"var currentPage=  pm.variables.get(\"RandomPageAccess\");\r",
 											"var maxAvailablePages=pm.variables.get(\"AvailablePages\");\r",
 											"   \r",
 											"   pm.test(\"Pagination Tests\", function () {\r",
@@ -155,8 +155,10 @@
 									"script": {
 										"id": "5eeac4dc-e107-45b9-9a9c-5fa5e8f15afb",
 										"exec": [
-											"//const pages= pm.variables.get(\"AvailablePages\");\r",
-											"  var pages=  pm.variables.set(\"RandomPageAccess\",42);\r",
+											"const pages= pm.variables.get(\"AvailablePages\");\r",
+											"\r",
+											"/** \r",
+											"var pages=  pm.variables.set(\"RandomPageAccess\",42);\r",
 											"\r",
 											"console.log(pages);\r",
 											"\r",
@@ -168,7 +170,9 @@
 											"\r",
 											"   // const nextPageNumber = jsonData.info.next;\r",
 											"\r",
-											"}"
+											"}\r",
+											"\r",
+											"**/"
 										],
 										"type": "text/javascript",
 										"packages": {}
