@@ -313,11 +313,12 @@
 											"script": {
 												"id": "236ef910-a665-4052-9a5f-5c187382fbc0",
 												"exec": [
+													"var currentPage=pm.variables.get(\"RandomPageAccess\");\r",
+													"\r",
 													"pm.test(\"Verify that pagination has expected previous and next links.\", function () {\r",
 													"    var jsonData = pm.response.json();\r",
 													"    var nextPageUrl;\r",
 													"    var prevPageUrl;\r",
-													"    console.log(nextPageUrl);\r",
 													"   \r",
 													"    nextPageUrl = jsonData.info.next;\r",
 													"    prevPageUrl=jsonData.info.prev;\r",
