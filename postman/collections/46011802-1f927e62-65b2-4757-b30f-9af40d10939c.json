@@ -248,6 +248,24 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "1670dd67-8b61-44ea-895a-51ced97aecd3",
+										"exec": [
+											"\r",
+											"pm.test(\"Verify a valid character id returning a 200 status code and correct information\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"    var responseJson = pm.response.json();\r",
+											"    var expectedCharacterId= pm.collectionVariables.get(\"CharacterId\");\r",
+											"\r",
+											"    pm.expect(responseJson.id==expectedCharacterId);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"id": "46011802-b631c9b4-e166-4378-b676-4b2af18c3c2c",
