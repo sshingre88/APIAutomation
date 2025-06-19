@@ -20,6 +20,17 @@
     "expectedCharacterName": "Rick Sanchez",
 	  "expectedId": 1
 
+  },
+  {
+	  "id":183,
+    "expectedname": "Rick",
+    "expectedstatus": "Alive",
+    "expectedspecies": "Human",
+    "expectedgender": "Male",
+    "expectedCount": 20,
+    "expectedCharacterName": "Rick Sanchez",
+	  "expectedId": 1
+
   }
   
 ]
