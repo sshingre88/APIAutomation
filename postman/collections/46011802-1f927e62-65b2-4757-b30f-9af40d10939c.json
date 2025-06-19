@@ -88,6 +88,82 @@
 							"response": []
 						},
 						{
+							"name": "ValidCharacter Copy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e225e66d-8bdc-42f9-b526-bb686e9fbe4d",
+										"exec": [
+											"pm.collectionVariables.set(\"CharacterId\", 1);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "04688a00-d343-4962-87f4-beb12c120e64",
+										"exec": [
+											"var responseJson = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Verify a valid character id is returning a 200 status code and correct information\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"        var expectedCharacterId= pm.collectionVariables.get(\"CharacterId\");\r",
+											"        pm.expect(responseJson.id==expectedCharacterId);\r",
+											"\r",
+											"    });\r",
+											"\r",
+											"pm.test(\"Verify character name\", function () {\r",
+											"    pm.expect(responseJson.name).to.eql(data.expectedCharacterName);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify character ID\", function () {\r",
+											"    pm.expect(responseJson.id).to.eql(parseInt(data.expectedId));\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify status\", function () {\r",
+											"    pm.expect(responseJson.status).to.eql(data.expectedstatus);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify species\", function () {\r",
+											"    pm.expect(responseJson.species).to.eql(data.expectedspecies);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify gender\", function () {\r",
+											"    pm.expect(responseJson.gender).to.eql(data.expectedgender);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "46011802-909b2708-ac66-4a41-94f2-ad4190152288",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "InvalidCharacter",
 							"event": [
 								{
