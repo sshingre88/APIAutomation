@@ -279,7 +279,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "27cfb0fc-464e-4070-a942-af89ffebaf89",
+				"id": "f07d8179-dd37-4eb1-866f-bebdbd26264e",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -290,7 +290,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "7b35062f-4809-4583-b86b-65051edc84e1",
+				"id": "ebf2f1f5-9987-4408-96a7-d5a2dc290e95",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -303,7 +303,7 @@
 					"}\r",
 					"\r",
 					"// Expose globally via pm.globals.set (if needed)\r",
-					"pm.globals.set(\"isSortedByIdFn\", isSortedById.toString());\r",
+					"pm.globals.set(\"isSortedById\", isSortedById.toString());\r",
 					""
 				]
 			}
