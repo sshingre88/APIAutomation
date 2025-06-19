@@ -230,6 +230,7 @@
 											"// Get the comma-separated IDs string from collection variable\r",
 											"const idsString = pm.collectionVariables.get(\"characterIds\");\r",
 											"\r",
+											"console.log(idsString);\r",
 											"// Split into array\r",
 											"const idsArray = idsString ? idsString.split(\",\") : [];\r",
 											"\r",
