@@ -871,7 +871,7 @@
 					"id": "46011802-f6feb4f9-6134-49e5-a5e2-7747277d542b"
 				},
 				{
-					"name": "GetSingleCharacter Copy",
+					"name": "GetSingleLocation",
 					"item": [
 						{
 							"name": "ValidCharacter",
