@@ -304,7 +304,20 @@
 						},
 						{
 							"name": "Pagination",
-							"item": [],
+							"item": [
+								{
+									"name": "New Request",
+									"id": "46011802-0dc1abc5-7df3-4eab-8f69-000c2e7acea5",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								}
+							],
 							"id": "46011802-1e4858c3-49a6-493b-8ffb-9eae5aa0bb2c"
 						},
 						{
