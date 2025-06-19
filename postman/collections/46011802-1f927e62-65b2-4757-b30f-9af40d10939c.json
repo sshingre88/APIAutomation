@@ -1168,7 +1168,20 @@
 		},
 		{
 			"name": "PerformanceTests",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "46011802-b8a85687-30f4-4d39-a50d-c43e7aa5c711",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "46011802-5ca1f91d-c459-47ab-8454-e3a4bd8b0ac8"
 		},
 		{
