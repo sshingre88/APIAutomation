@@ -276,6 +276,7 @@
 										"exec": [
 											"var loopCount =  pm.environment.get(\"SingleCharacterLoopCount\");\r",
 											"\r",
+											"while (loopCount<3){\r",
 											"if(loopCount==0){\r",
 											"        pm.test(\"Verify a valid character id is returning a 200 status code and correct information\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -306,6 +307,7 @@
 											"    });\r",
 											"}\r",
 											"  \r",
+											"}\r",
 											""
 										],
 										"type": "text/javascript",
