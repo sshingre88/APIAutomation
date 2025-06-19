@@ -546,7 +546,7 @@
 											"    console.log(\"actualids \", actualIds);\r",
 											"        console.log(\"expectedCharacterIds \", expectedCharacterIds)\r",
 											"\r",
-											"        pm.expect(actualIds.to.expect(expectedCharacterIds));\r",
+											"        pm.expect(actualIds.to.eql(expectedCharacterIds));\r",
 											"\r",
 											"    });\r",
 											""
