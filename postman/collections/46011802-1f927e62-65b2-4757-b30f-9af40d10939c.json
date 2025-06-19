@@ -590,7 +590,7 @@
 							"response": []
 						},
 						{
-							"name": "InvalidCharacterIdList Copy",
+							"name": "LargeListOfCharacterIds",
 							"event": [
 								{
 									"listen": "test",
