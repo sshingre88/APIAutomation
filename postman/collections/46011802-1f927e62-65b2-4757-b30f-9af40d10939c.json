@@ -747,7 +747,7 @@
 			"name": "Locations",
 			"item": [
 				{
-					"name": "GetAllCharacters Copy",
+					"name": "GetAllLocations",
 					"item": [
 						{
 							"name": "GetAllCharacters",
