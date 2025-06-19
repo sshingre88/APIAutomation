@@ -16,7 +16,16 @@ WitnessAI-Assessment
 │   ├── Pagination
 │   └── FilterCharacters
 ├── Episodes
+│   ├── GetAllEpisodes
+│   ├── GetSpecificEpisode
+│   ├── Filters
+│   └── FilterCharacters
 ├── Locations
+│   ├── GetSingleLocation
+│   ├── GetAllLocations
+│   ├── GetMultipleLocations
+│   ├── Pagination
+│   └── FilterLocation
 └── APIResources
 ```
 
@@ -128,25 +137,18 @@ newman run WitnessAI-Assessment.postman_collection.json --iteration-data testDat
 ## 🧪 Newman Commands to Run Each Folder
 
 You can run specific folders within the collection using the `--folder` option in Newman:
+Sample newman commads are as follows:
 
 ```bash
 # Run APIResources (Root-level)
 newman run WitnessAI-Assessment.postman_collection.json --folder "APIResources"
 
-# Run Characters > GetSingleCharacter
-newman run WitnessAI-Assessment.postman_collection.json --folder "GetSingleCharacter"
+# Run Characters > GetSingleCharacter (At individual folder level).
+newman run Collections/WitnessAI-Assessment.postman_collection.json --folder "GetSingleCharacter" --iteration-data TestData/Characters.json  --environment Config/Production.postman_environment.json   --reporters cli,html --reporter-html-export ./reports/newman-report.html
 
-# Run Characters > GetAllCharacters
-newman run WitnessAI-Assessment.postman_collection.json --folder "GetAllCharacters"
+# Run Characters > GetAllLocations (At Parent Level)
+newman run Collections/WitnessAI-Assessment.postman_collection.json --folder "GetAllLocations"  --environment Config/Production.postman_environment.json   --reporters cli,html --reporter-html-export ./reports/newman-report.html
 
-# Run Characters > GetMultipleCharacters
-newman run WitnessAI-Assessment.postman_collection.json --folder "GetMultipleCharacters"
-
-# Run Characters > Pagination
-newman run WitnessAI-Assessment.postman_collection.json --folder "Pagination"
-
-# Run Characters > FilterCharacters
-newman run WitnessAI-Assessment.postman_collection.json --folder "FilterCharacters"
 ```
 
 > 📌 Folder names are case-sensitive and must match the collection exactly.
