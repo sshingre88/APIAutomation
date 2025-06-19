@@ -338,7 +338,7 @@
 											"script": {
 												"id": "67925287-6cbe-4d4b-9dfa-9033b676f282",
 												"exec": [
-													"pm.variables.set(\"RandomPageAccess\", 12);\r",
+													"pm.collectionVariables.set(\"RandomPageAccess\", 12);\r",
 													""
 												],
 												"type": "text/javascript",
