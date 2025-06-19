@@ -248,6 +248,11 @@
 											"\r",
 											"// Optionally set it as another collection variable\r",
 											"pm.collectionVariables.set(\"CharacterId\", firstId);\r",
+											"}\r",
+											"\r",
+											"else if(loopCount==1){\r",
+											"    pm.collectionVariables.set(\"CharacterId\", -1);\r",
+											"\r",
 											"}"
 										],
 										"type": "text/javascript",
@@ -268,9 +273,10 @@
 											"        var expectedCharacterId= pm.collectionVariables.get(\"CharacterId\");\r",
 											"        pm.environment.set(\"SingleCharacterLoopCount\", loopCount+1);\r",
 											"        pm.expect(responseJson.id==expectedCharacterId);\r",
-											"        PostmanLegacy.setNextRequest(\"GetSingleCharacter\");\r",
+											"        pm.sendRequest(\"GetSingleCharacter\");\r",
 											"\r",
 											"    });\r",
+											"  \r",
 											"}"
 										],
 										"type": "text/javascript",
