@@ -381,8 +381,7 @@
 											"script": {
 												"id": "7cab462b-0a73-4df2-9abd-7570d51046b3",
 												"exec": [
-													"  var maxAvailablePages=  pm.variables.get(\"AvailablePages\");\r",
-													"  pm.variables.set(\"RandomPageAccess\", maxAvailablePages);\r",
+													"  pm.variables.set(\"RandomPageAccess\", 42);\r",
 													""
 												],
 												"type": "text/javascript",
