@@ -2,6 +2,7 @@
 # 🧪 WitnessAI-Assessment - Postman Collection
 
 This Postman collection is designed to test the [Rick and Morty API](https://rickandmortyapi.com/) with various test cases, including valid, invalid, pagination, and filter scenarios. It supports both **positive and negative** tests for characters, pagination, multiple ID fetches, and filters.
+Use WitnessAI-Assessment.postman_collection from Collections folder.
 
 ---
 
