@@ -928,14 +928,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://{{Host}}/api/character/{{location_id}}",
+									"raw": "https://{{Host}}/api/location/{{location_id}}",
 									"protocol": "https",
 									"host": [
 										"{{Host}}"
 									],
 									"path": [
 										"api",
-										"character",
+										"location",
 										"{{location_id}}"
 									]
 								}
