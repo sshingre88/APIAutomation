@@ -740,7 +740,13 @@
 		},
 		{
 			"name": "Episodes",
-			"item": [],
+			"item": [
+				{
+					"name": "New Folder",
+					"item": [],
+					"id": "46011802-77364c6c-f38a-4645-a925-d1143e26c4f2"
+				}
+			],
 			"id": "46011802-5bbeaf13-242c-4da8-9c4b-0f857dcaa85d"
 		},
 		{
