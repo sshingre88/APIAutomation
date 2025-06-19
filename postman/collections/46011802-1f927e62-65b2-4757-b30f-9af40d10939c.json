@@ -217,7 +217,7 @@
 							"response": []
 						},
 						{
-							"name": "New Request",
+							"name": "GetSpecificCharacter",
 							"id": "46011802-b631c9b4-e166-4378-b676-4b2af18c3c2c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
