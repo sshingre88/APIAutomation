@@ -507,6 +507,10 @@
 		{
 			"key": "CharacterId",
 			"value": ""
+		},
+		{
+			"key": "RandomPageAccess",
+			"value": ""
 		}
 	]
 }
