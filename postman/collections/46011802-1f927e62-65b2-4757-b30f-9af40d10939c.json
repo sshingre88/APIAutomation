@@ -1127,13 +1127,39 @@
 			"item": [
 				{
 					"name": "GetAllCharacters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b753c1c6-ff80-4704-82dc-eca21efe9fd7",
+								"exec": [
+									"pm.test(\"Check for rate limit headers\", function () {\r",
+									"    pm.expect(pm.response.headers.has(\"X-RateLimit-Limit\")).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "46011802-89ba6491-9aef-430e-8c6b-6d32153f5ff0",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "https://{{Host}}/api/character",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"api",
+								"character"
+							]
+						}
 					},
 					"response": []
 				}
