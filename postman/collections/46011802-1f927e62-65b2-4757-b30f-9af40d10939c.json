@@ -71,13 +71,52 @@
 								},
 								{
 									"name": "InvalidCharacter",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "8cf9bdfd-112d-48b7-adbb-378421e96961",
+												"exec": [
+													"pm.collectionVariables.set(\"CharacterId\", -1);\r",
+													" "
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "f952554a-5545-435f-bf74-a054e9d96338",
+												"exec": [
+													"pm.test(\"Verify a invalid character id is returning a 404 status code with no information\", function () {\r",
+													"        pm.response.to.have.status(404);\r",
+													"    });"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "46011802-39b7f7b4-7fd2-4dd6-b987-7b38b93407cb",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
 										"method": "GET",
-										"header": []
+										"header": [],
+										"url": {
+											"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+											"protocol": "https",
+											"host": [
+												"{{Host}}"
+											],
+											"path": [
+												"api",
+												"character",
+												"{{CharacterId}}"
+											]
+										}
 									},
 									"response": []
 								},
