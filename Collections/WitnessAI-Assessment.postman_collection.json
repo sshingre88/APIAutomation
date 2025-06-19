@@ -1,0 +1,781 @@
+{
+	"info": {
+		"_postman_id": "1f927e62-65b2-4757-b30f-9af40d10939c",
+		"name": "WitnessAI-Assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46011802",
+		"_collection_link": "https://suruchi-523849.postman.co/workspace/5ec38574-c72c-4304-8cff-6a926aecb795/collection/46011802-1f927e62-65b2-4757-b30f-9af40d10939c?action=share&source=collection_link&creator=46011802"
+	},
+	"item": [
+		{
+			"name": "Characters",
+			"item": [
+				{
+					"name": "GetSingleCharacter",
+					"item": [
+						{
+							"name": "ValidCharacter",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"CharacterId\", 1);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var responseJson = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Verify a valid character id is returning a 200 status code and correct information\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"        var expectedCharacterId= pm.collectionVariables.get(\"CharacterId\");\r",
+											"        pm.expect(responseJson.id==expectedCharacterId);\r",
+											"\r",
+											"    });\r",
+											"\r",
+											"pm.test(\"Verify character name\", function () {\r",
+											"    pm.expect(responseJson.name).to.eql(data.expectedCharacterName);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify character ID\", function () {\r",
+											"    pm.expect(responseJson.id).to.eql(parseInt(data.expectedId));\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify status\", function () {\r",
+											"    pm.expect(responseJson.status).to.eql(data.expectedstatus);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify species\", function () {\r",
+											"    pm.expect(responseJson.species).to.eql(data.expectedspecies);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify gender\", function () {\r",
+											"    pm.expect(responseJson.gender).to.eql(data.expectedgender);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "InvalidCharacter",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"CharacterId\", -1);\r",
+											" "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify a invalid character id is returning a 404 status code with no information\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "InvalidIdType",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											" pm.test(\"Verify that an API failed gracefully when invalid type (decimal value) has passed in the request.\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"CharacterId\", 9999999.01010);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GetAllCharacters",
+					"item": [
+						{
+							"name": "GetAllCharacters",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData= null;\r",
+											"var expectedCharacterCount=pm.variables.get(\"TotalCharacters\");\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"     jsonData = pm.response.json();\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check total character count\", function () {\r",
+											"    pm.expect(jsonData.info.count==expectedCharacterCount);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is an integer type for pages object\", function () {\r",
+											"   if('pages' in jsonData.info){\r",
+											"        const pagesValueToCheck = jsonData.info.pages;\r",
+											"        pm.variables.set(\"AvailablePages\", pagesValueToCheck);\r",
+											"        pm.expect(Number.isInteger(pagesValueToCheck)).to.be.true;\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return pages information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is an integer type for count object\", function () {\r",
+											"   if('count' in jsonData.info){\r",
+											"        const countValueToCheck = jsonData.info.count;\r",
+											"        pm.expect(Number.isInteger(countValueToCheck)).to.be.true;\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return pages information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is of string type for next field\", function () {\r",
+											"   if('next' in jsonData.info){\r",
+											"        const countValueToCheck = jsonData.info.next;\r",
+											"        if(countValueToCheck!=null)\r",
+											"             pm.expect(countValueToCheck).to.be.a(\"string\");\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return next page url information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if the value is of string type for prev field\", function () {\r",
+											"   if('next' in jsonData.info){\r",
+											"        const countValueToCheck = jsonData.info.prev;\r",
+											"        if(countValueToCheck!=null)\r",
+											"             pm.expect(countValueToCheck).to.be.a(\"string\");\r",
+											"   }\r",
+											"   else\r",
+											"     pm.expect.fail(\"This test failed because an info object doesn't return previous page url information.\");\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"//check default page=1 when no page parameter is provided\r",
+											"pm.test(\"Check default page=0 when no page parameter is provided\", function () {\r",
+											"        var nextPageUrl = jsonData.info.next;\r",
+											"\r",
+											"        pm.expect(jsonData.info.prev).to.eql(null);\r",
+											"        pm.expect(nextPageUrl).satisfy(val => val.split('page=')[1] == (2));\r",
+											"    \r",
+											"});\r",
+											"\r",
+											"//validate sort order of characters\r",
+											"pm.test(\"validate sort order of characters\", function () {\r",
+											"        eval(\"var isSortedById = \" + pm.globals.get(\"isSortedById\"));\r",
+											"        let ids = jsonData.results.map(character => character.id);\r",
+											"        pm.collectionVariables.set(\"characterIds\", ids);\r",
+											"        pm.expect(isSortedById(ids)).to.be.true;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const count = pm.info.iteration;\r",
+											"\r",
+											"console.log(\"Iteration count \"+count);\r",
+											"if(count>0)\r",
+											"    pm.execution.skipRequest();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pagination",
+					"item": [
+						{
+							"name": "MiddlePage",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var currentPage=pm.variables.get(\"RandomPageAccess\");\r",
+											"\r",
+											"pm.test(\"Verify that pagination has expected previous and next links.\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var nextPageUrl;\r",
+											"    var prevPageUrl;\r",
+											"   \r",
+											"    nextPageUrl = jsonData.info.next;\r",
+											"    prevPageUrl=jsonData.info.prev;\r",
+											"\r",
+											"    pm.expect(nextPageUrl).satisfy(val => val.split('page=')[1] == (currentPage+1));\r",
+											"    pm.expect(prevPageUrl).satisfy(val => val.split('page=')[1] == (currentPage-1));\r",
+											"    \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"RandomPageAccess\", 12);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character?page={{RandomPageAccess}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "{{RandomPageAccess}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "EndPage",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"RandomPageAccess\", 42);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var currentPage=pm.variables.get(\"RandomPageAccess\");\r",
+											"\r",
+											"pm.test(\"Verify that pagination has expected previous and next links.\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var nextPageUrl;\r",
+											"    var prevPageUrl;\r",
+											"   \r",
+											"    nextPageUrl = jsonData.info.next;\r",
+											"    prevPageUrl=jsonData.info.prev;\r",
+											"\r",
+											"    pm.expect(jsonData.info.next).to.eql(null);\r",
+											"    pm.expect(prevPageUrl).satisfy(val => val.split('page=')[1] == (currentPage-1));\r",
+											"\r",
+											"    \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character?page={{RandomPageAccess}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "{{RandomPageAccess}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GetMultipleCharacters",
+					"item": [
+						{
+							"name": "ValidCharacterIdsList",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var responseJson = pm.response.json();\r",
+											"var expectedCharacterIds= pm.collectionVariables.get(\"CharacterId\");\r",
+											"\r",
+											"pm.test(\"Verify that multiple characters are returned successfully\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"        const actualIds = responseJson.map(char => char.id);\r",
+											"        pm.expect(actualIds==expectedCharacterIds);\r",
+											"\r",
+											"    });\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const ids = [1,183];\r",
+											"const queryStr = ids.join(\",\"); // \"Rick,Morty,Summer\"\r",
+											"pm.collectionVariables.set(\"CharacterId\", queryStr);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "InvalidCharacterIdList",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var responseJson = pm.response.json();\r",
+											"var expectedCharacterIds= pm.collectionVariables.get(\"CharacterId\");\r",
+											"\r",
+											"pm.test(\"Verify that multiple characters are returned successfully\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"        const actualIds = responseJson.map(char => char.id);\r",
+											"        console.log(\"actualids \", actualIds);\r",
+											"        console.log(\"expectedCharacterIds \", expectedCharacterIds)\r",
+											"        pm.expect(actualIds).to.be.an(\"array\").that.is.empty;\r",
+											"    });\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const ids = [988767678,998998];\r",
+											"const queryStr = ids.join(\",\"); // \"Rick,Morty,Summer\"\r",
+											"pm.collectionVariables.set(\"CharacterId\", queryStr);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LargeListOfCharacterIds",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var responseJson = pm.response.json();\r",
+											"var expectedCharacterIds= pm.collectionVariables.get(\"CharacterId\").split(', ').map(Number);;\r",
+											"\r",
+											"pm.test(\"Verify that multiple characters are returned successfully\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"        const actualIds = responseJson.map(char => char.id);\r",
+											"        pm.expect(actualIds).to.eql(expectedCharacterIds);\r",
+											"    });\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const csv = Array.from({ length: 182 }, (_, i) => i + 1).join(\", \");\r",
+											"\r",
+											"pm.collectionVariables.set(\"CharacterId\", csv);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "FilterCharacters",
+					"item": [
+						{
+							"name": "FilterCharacters",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json();\r",
+											"\r",
+											"// Basic status test\r",
+											"pm.test(\"Response returns with status 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"// Check structure\r",
+											"pm.test(\"Response has valid structure\", function () {\r",
+											"    pm.expect(response).to.have.property(\"info\");\r",
+											"    pm.expect(response).to.have.property(\"results\");\r",
+											"});\r",
+											"\r",
+											"// Handle expected empty results\r",
+											"pm.test(\"Validate results for negative cases\", function () {\r",
+											"    const isNegative = \r",
+											"        (data.name && data.name === \"NonExistentCharacter\") ||\r",
+											"        (data.status && ![\"alive\", \"dead\", \"unknown\"].includes(data.status.toLowerCase())) ||\r",
+											"        (data.gender && ![\"male\", \"female\", \"genderless\", \"unknown\"].includes(data.gender.toLowerCase()));\r",
+											"\r",
+											"    if (isNegative) {\r",
+											"        pm.expect(response.results.length).to.eql(0);\r",
+											"    } else {\r",
+											"        pm.expect(response.results.length).to.be.greaterThan(0);\r",
+											"    }\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://rickandmortyapi.com/api/character?name={{name}}&status={{status}}&species={{species}}&type={{type}}&gender={{gender}}",
+									"protocol": "https",
+									"host": [
+										"rickandmortyapi",
+										"com"
+									],
+									"path": [
+										"api",
+										"character"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{name}}"
+										},
+										{
+											"key": "status",
+											"value": "{{status}}"
+										},
+										{
+											"key": "species",
+											"value": "{{species}}"
+										},
+										{
+											"key": "type",
+											"value": "{{type}}"
+										},
+										{
+											"key": "gender",
+											"value": "{{gender}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Episodes",
+			"item": []
+		},
+		{
+			"name": "Locations",
+			"item": []
+		},
+		{
+			"name": "APIResources",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const count = pm.info.iteration;\r",
+							"\r",
+							"if(count>0)\r",
+							"    pm.execution.skipRequest();"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{Host}}/api",
+					"protocol": "https",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"//Util Functions"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"// Collection-level script\r",
+					"function isSortedById(array) {\r",
+					"  for (let i = 1; i < array.length; i++) {\r",
+					"    console.log(array[i]);\r",
+					"    if (array[i] < array[i - 1]) return false;\r",
+					"  }\r",
+					"  return true;\r",
+					"}\r",
+					"\r",
+					"// Expose globally via pm.globals.set (if needed)\r",
+					"pm.globals.set(\"isSortedById\", isSortedById.toString());\r",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "characterIds",
+			"value": ""
+		},
+		{
+			"key": "CharacterId",
+			"value": ""
+		},
+		{
+			"key": "RandomPageAccess",
+			"value": ""
+		}
+	]
+}

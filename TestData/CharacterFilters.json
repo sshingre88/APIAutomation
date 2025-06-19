@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Rick",
+    "status": "alive",
+    "species": "Human",
+    "type": "",
+    "gender": "Male"
+  },
+  {
+    "name": "Beth",
+    "status": "alive",
+    "species": "Human",
+    "type": "",
+    "gender": "Female"
+  },
+  {
+    "name": "NonExistentCharacter",
+    "status": "",
+    "species": "",
+    "type": "",
+    "gender": ""
+  },
+  {
+    "name": "",
+    "status": "zombie", 
+    "species": "Ghost",
+    "type": "",
+    "gender": "Robot"
+  },
+  {
+    "name": "",
+    "status": "",
+    "species": "",
+    "type": "",
+    "gender": ""
+  }
+]
