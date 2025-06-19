@@ -12,18 +12,6 @@
 					"name": "Characters",
 					"item": [
 						{
-							"name": "DummyEchoRequest",
-							"id": "46011802-cefd813e-f1e6-4588-bafd-761f93bb9259",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": []
-							},
-							"response": []
-						},
-						{
 							"name": "Character",
 							"event": [
 								{
