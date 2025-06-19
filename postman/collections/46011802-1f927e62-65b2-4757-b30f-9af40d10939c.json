@@ -27,8 +27,20 @@
 									"response": []
 								},
 								{
-									"name": "New Request",
+									"name": "GetInvalidCharacter",
 									"id": "46011802-39b7f7b4-7fd2-4dd6-b987-7b38b93407cb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"id": "46011802-5f03d1c1-f7db-430e-ac3a-b4477cecb843",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
