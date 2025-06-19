@@ -745,7 +745,7 @@
 					"name": "FilterEpisodes",
 					"item": [
 						{
-							"name": "New Request",
+							"name": "FilterEpisode",
 							"id": "46011802-3ddc977a-6148-4242-af15-538b02b713f9",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
