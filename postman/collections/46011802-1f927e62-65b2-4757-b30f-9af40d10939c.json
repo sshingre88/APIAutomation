@@ -77,10 +77,30 @@
 											"     pm.expect.fail(\"This test failed because an info object doesn't return previous page url information.\");\r",
 											"    \r",
 											"});\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
+											"//check default page=0 when no page parameter is provided\r",
+											"pm.test(\"Check default page=0 when no page parameter is provided\", function () {\r",
+											"        var nextPageUrl = jsonData.info.next;\r",
+											"\r",
+											"        pm.expect(jsonData.info.prev).to.eql(null);\r",
+											"        pm.expect(nextPageUrl).satisfy(val => val.split('page=')[1] == (1));\r",
+											"    \r",
+											"});\r",
+											"\r",
 											""
 										],
 										"type": "text/javascript",
 										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
 									}
 								}
 							],
