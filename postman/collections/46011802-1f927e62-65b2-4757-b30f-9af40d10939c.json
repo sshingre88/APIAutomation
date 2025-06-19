@@ -385,6 +385,18 @@
 								"description": "## Overview\n\nThis endpoint retrieves a list of characters from the API. It supports pagination, allowing users to access different pages of character data.\n\n## Request Parameters\n\n- **page** (integer, required): Specifies the page number of the character list to retrieve. Replace `{{RandomPageAccess}}` with the desired page number.\n    \n\n## Response Format\n\nThe response is returned in JSON format and includes the following structure:\n\n- **info**: An object containing metadata about the request.\n    \n    - **count** (integer): The total number of characters available.\n        \n    - **pages** (integer): The total number of pages available based on the character count.\n        \n    - **next** (string or null): A URL to the next page of results, if available.\n        \n    - **prev** (string): A URL to the previous page of results, if available.\n        \n- **results**: An array of character objects, where each object contains:\n    \n    - **id** (integer): The unique identifier for the character.\n        \n    - **name** (string): The name of the character.\n        \n    - **status** (string): The current status of the character (e.g., alive, dead).\n        \n    - **species** (string): The species of the character.\n        \n    - **type** (string): The type of character, if applicable.\n        \n    - **gender** (string): The gender of the character.\n        \n    - **origin**: An object containing:\n        \n        - **name** (string): The name of the character's origin.\n            \n        - **url** (string): A URL to more information about the origin.\n            \n    - **location**: An object containing:\n        \n        - **name** (string): The name of the character's current location.\n            \n        - **url** (string): A URL to more information about the location.\n            \n    - **image** (string): A URL to an image of the character.\n        \n    - **episode** (array of strings): A list of episodes in which the character appeared.\n        \n    - **url** (string): A URL to more information about the character.\n        \n    - **created** (string): A timestamp indicating when the character was created.\n        \n\n## Pagination Notes\n\n- Use the **page** parameter to navigate through the list of characters. The **info** object in the response will indicate the total number of characters and available pages, as well as links to the next and previous pages if applicable."
 							},
 							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "46011802-681f03a8-2342-4368-9d4e-1b502d041e61",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
 						}
 					],
 					"id": "46011802-cb61758c-00f1-4631-8362-2bc154fd43a9"
