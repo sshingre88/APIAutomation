@@ -440,38 +440,7 @@
 											]
 										}
 									},
-									"response": [
-										{
-											"id": "46011802-aea51f8a-0053-47f5-8bb8-5f33959d968b",
-											"name": "EndPage",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": {
-													"raw": "https://{{Host}}/api/character?page={{RandomPageAccess}}",
-													"protocol": "https",
-													"host": [
-														"{{Host}}"
-													],
-													"path": [
-														"api",
-														"character"
-													],
-													"query": [
-														{
-															"key": "page",
-															"value": "{{RandomPageAccess}}"
-														}
-													]
-												}
-											},
-											"_postman_previewlanguage": null,
-											"header": null,
-											"cookie": [],
-											"responseTime": null,
-											"body": null
-										}
-									]
+									"response": []
 								}
 							],
 							"id": "46011802-1e4858c3-49a6-493b-8ffb-9eae5aa0bb2c"
