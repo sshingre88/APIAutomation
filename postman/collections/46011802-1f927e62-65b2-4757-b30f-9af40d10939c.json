@@ -79,8 +79,6 @@
 											"});\r",
 											"\r",
 											"\r",
-											"\r",
-											"\r",
 											"//check default page=1 when no page parameter is provided\r",
 											"pm.test(\"Check default page=0 when no page parameter is provided\", function () {\r",
 											"        var nextPageUrl = jsonData.info.next;\r",
