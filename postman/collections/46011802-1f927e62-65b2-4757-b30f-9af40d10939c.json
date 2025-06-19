@@ -101,6 +101,7 @@
 									"script": {
 										"id": "8e0ec6ce-d57f-4e62-85ea-c9a9669d2715",
 										"exec": [
+											"console.log(pm.info.iteration);\r",
 											"if(pm.info.iteration>0)\r",
 											"    pm.execution.skipRequest();"
 										],
