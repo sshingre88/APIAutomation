@@ -750,7 +750,7 @@
 					"name": "GetAllLocations",
 					"item": [
 						{
-							"name": "GetAllCharacters",
+							"name": "GetAllLocation",
 							"event": [
 								{
 									"listen": "test",
