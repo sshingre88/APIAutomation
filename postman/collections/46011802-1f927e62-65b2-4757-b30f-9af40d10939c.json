@@ -135,6 +135,9 @@
 											"            pm.expect(jsonData.info.prev).to.eql(null);\r",
 											"            pm.expect((nextPageUrl.split('page=')[1]) == (currentPage+1)) ;\r",
 											"        }\r",
+											"        else if(currentPage>maxAvailablePages){\r",
+											"            pm.response.to.have.status(200);\r",
+											"        }\r",
 											"        \r",
 											"        else {\r",
 											"            pm.expect((nextPageUrl.split('page=')[1]) == (currentPage+1)) ;\r",
@@ -152,24 +155,7 @@
 									"script": {
 										"id": "5eeac4dc-e107-45b9-9a9c-5fa5e8f15afb",
 										"exec": [
-											"const pages= pm.variables.get(\"AvailablePages\");\r",
-											"\r",
-											"/** \r",
-											"var pages=  pm.variables.set(\"RandomPageAccess\",42);\r",
-											"\r",
-											"console.log(pages);\r",
-											"\r",
-											"if(pages >0){\r",
-											"    var randomPageNumber=  Math.floor(Math.random() * pages);\r",
-											"    console.log(randomPageNumber);\r",
-											"    pm.variables.set(\"RandomPageAccess\",randomPageNumber);\r",
-											"    //check pagination\r",
-											"\r",
-											"   // const nextPageNumber = jsonData.info.next;\r",
-											"\r",
-											"}\r",
-											"\r",
-											"**/"
+											"const pages= pm.variables.get(\"AvailablePages\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
