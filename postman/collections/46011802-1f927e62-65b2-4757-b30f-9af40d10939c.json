@@ -1,11 +1,8 @@
 {
 	"info": {
-		"_postman_id": "1f927e62-65b2-4757-b30f-9af40d10939c",
+		"_postman_id": "46011802-1f927e62-65b2-4757-b30f-9af40d10939c",
 		"name": "WitnessAI-Assessment",
-		"description": "This Postman collection is designed to test the [Rick and Morty API](https://rickandmortyapi.com/) with various test cases, including valid, invalid, pagination, and filter scenarios. It supports both **positive and negative** tests for characters, pagination, multiple ID fetches, and filters.EndFragment",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "46011802",
-		"_collection_link": "https://suruchi-523849.postman.co/workspace/5ec38574-c72c-4304-8cff-6a926aecb795/collection/46011802-1f927e62-65b2-4757-b30f-9af40d10939c?action=share&source=collection_link&creator=46011802"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -20,6 +17,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "e225e66d-8bdc-42f9-b526-bb686e9fbe4d",
 										"exec": [
 											"pm.collectionVariables.set(\"CharacterId\", 1);\r",
 											""
@@ -31,6 +29,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "04688a00-d343-4962-87f4-beb12c120e64",
 										"exec": [
 											"var responseJson = pm.response.json();\r",
 											"\r",
@@ -66,6 +65,10 @@
 									}
 								}
 							],
+							"id": "46011802-e8dc7522-c456-4289-a155-adce47d3864d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -90,6 +93,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "8cf9bdfd-112d-48b7-adbb-378421e96961",
 										"exec": [
 											"pm.collectionVariables.set(\"CharacterId\", -1);\r",
 											" "
@@ -101,6 +105,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "f952554a-5545-435f-bf74-a054e9d96338",
 										"exec": [
 											"pm.test(\"Verify a invalid character id is returning a 404 status code with no information\", function () {\r",
 											"        pm.response.to.have.status(404);\r",
@@ -111,6 +116,10 @@
 									}
 								}
 							],
+							"id": "46011802-39b7f7b4-7fd2-4dd6-b987-7b38b93407cb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -135,6 +144,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "05a11044-6bd9-45cb-8009-b8888fb53f84",
 										"exec": [
 											" pm.test(\"Verify that an API failed gracefully when invalid type (decimal value) has passed in the request.\", function () {\r",
 											"        pm.response.to.have.status(404);\r",
@@ -147,6 +157,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "97611cd0-b392-4e14-9871-ba17e074853f",
 										"exec": [
 											"pm.collectionVariables.set(\"CharacterId\", 9999999.01010);\r",
 											""
@@ -156,6 +167,10 @@
 									}
 								}
 							],
+							"id": "46011802-5f03d1c1-f7db-430e-ac3a-b4477cecb843",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -174,7 +189,8 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"id": "46011802-c8b461a1-e114-4e0a-9104-880193359954"
 				},
 				{
 					"name": "GetAllCharacters",
@@ -185,6 +201,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "3209c6a1-f38b-49f7-a6c0-a358cb68cc99",
 										"exec": [
 											"var jsonData= null;\r",
 											"var expectedCharacterCount=pm.variables.get(\"TotalCharacters\");\r",
@@ -266,6 +283,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "8e0ec6ce-d57f-4e62-85ea-c9a9669d2715",
 										"exec": [
 											"const count = pm.info.iteration;\r",
 											"\r",
@@ -278,6 +296,10 @@
 									}
 								}
 							],
+							"id": "46011802-9b6fb763-a6b8-4435-a7d9-ca218c0c162d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -295,7 +317,8 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"id": "46011802-031587cb-16d9-4843-95b7-0d23b4ae65ae"
 				},
 				{
 					"name": "Pagination",
@@ -306,6 +329,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "236ef910-a665-4052-9a5f-5c187382fbc0",
 										"exec": [
 											"var currentPage=pm.variables.get(\"RandomPageAccess\");\r",
 											"\r",
@@ -330,6 +354,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "67925287-6cbe-4d4b-9dfa-9033b676f282",
 										"exec": [
 											"pm.collectionVariables.set(\"RandomPageAccess\", 12);\r",
 											""
@@ -339,6 +364,10 @@
 									}
 								}
 							],
+							"id": "46011802-0dc1abc5-7df3-4eab-8f69-000c2e7acea5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -368,6 +397,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "7cab462b-0a73-4df2-9abd-7570d51046b3",
 										"exec": [
 											"pm.collectionVariables.set(\"RandomPageAccess\", 42);\r",
 											""
@@ -379,6 +409,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "7c83ea19-284f-44cf-9c9f-ebceaea2a7d5",
 										"exec": [
 											"var currentPage=pm.variables.get(\"RandomPageAccess\");\r",
 											"\r",
@@ -401,6 +432,10 @@
 									}
 								}
 							],
+							"id": "46011802-0bfec5ef-b2c4-44d5-a682-23242f16cc2f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -424,7 +459,8 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"id": "46011802-1e4858c3-49a6-493b-8ffb-9eae5aa0bb2c"
 				},
 				{
 					"name": "GetMultipleCharacters",
@@ -435,6 +471,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "6c4d4445-edcc-4805-9e13-2f9be1f2b0ab",
 										"exec": [
 											"var responseJson = pm.response.json();\r",
 											"var expectedCharacterIds= pm.collectionVariables.get(\"CharacterId\");\r",
@@ -454,6 +491,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "aed1dd34-562e-45a6-912b-fe6618a28bf7",
 										"exec": [
 											"const ids = [1,183];\r",
 											"const queryStr = ids.join(\",\"); // \"Rick,Morty,Summer\"\r",
@@ -464,6 +502,10 @@
 									}
 								}
 							],
+							"id": "46011802-f467a4e8-2480-4c27-97ef-3b1e8289fb59",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -488,6 +530,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "6c4d4445-edcc-4805-9e13-2f9be1f2b0ab",
 										"exec": [
 											"var responseJson = pm.response.json();\r",
 											"var expectedCharacterIds= pm.collectionVariables.get(\"CharacterId\");\r",
@@ -508,6 +551,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "aed1dd34-562e-45a6-912b-fe6618a28bf7",
 										"exec": [
 											"const ids = [988767678,998998];\r",
 											"const queryStr = ids.join(\",\"); // \"Rick,Morty,Summer\"\r",
@@ -518,6 +562,10 @@
 									}
 								}
 							],
+							"id": "46011802-3914f627-4c85-44df-8670-8f3cb3f0ab72",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -542,6 +590,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "6c4d4445-edcc-4805-9e13-2f9be1f2b0ab",
 										"exec": [
 											"var responseJson = pm.response.json();\r",
 											"var expectedCharacterIds= pm.collectionVariables.get(\"CharacterId\").split(', ').map(Number);;\r",
@@ -560,6 +609,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "aed1dd34-562e-45a6-912b-fe6618a28bf7",
 										"exec": [
 											"const csv = Array.from({ length: 182 }, (_, i) => i + 1).join(\", \");\r",
 											"\r",
@@ -570,6 +620,10 @@
 									}
 								}
 							],
+							"id": "46011802-9d635eb3-35b0-4401-bade-b8fb83d9afc2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -588,7 +642,8 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"id": "46011802-7107ed20-e17b-40a7-b62c-f95de1c9540f"
 				},
 				{
 					"name": "FilterCharacters",
@@ -599,6 +654,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "c3117e2b-ab87-4332-87b8-9b1c3743927c",
 										"exec": [
 											"const response = pm.response.json();\r",
 											"\r",
@@ -632,6 +688,10 @@
 									}
 								}
 							],
+							"id": "46011802-1b16b0b5-612d-4eb4-a616-ac725c344f73",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -672,9 +732,11 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"id": "46011802-86fd0072-a337-44ed-a1b8-128272dcffdb"
 				}
-			]
+			],
+			"id": "46011802-cb61758c-00f1-4631-8362-2bc154fd43a9"
 		},
 		{
 			"name": "Episodes",
@@ -688,6 +750,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "8acdccf0-0ba9-4c58-9ab6-a844e66d4605",
 										"exec": [
 											"const json = pm.response.json();\r",
 											"\r",
@@ -712,6 +775,10 @@
 									}
 								}
 							],
+							"id": "46011802-3ddc977a-6148-4242-af15-538b02b713f9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -740,9 +807,11 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"id": "46011802-77364c6c-f38a-4645-a925-d1143e26c4f2"
 				}
-			]
+			],
+			"id": "46011802-5bbeaf13-242c-4da8-9c4b-0f857dcaa85d"
 		},
 		{
 			"name": "Locations",
@@ -756,6 +825,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "3209c6a1-f38b-49f7-a6c0-a358cb68cc99",
 										"exec": [
 											"var jsonData= null;\r",
 											"var expectedCharacterCount=pm.variables.get(\"TotalLocations\");\r",
@@ -837,6 +907,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "8e0ec6ce-d57f-4e62-85ea-c9a9669d2715",
 										"exec": [
 											""
 										],
@@ -845,6 +916,10 @@
 									}
 								}
 							],
+							"id": "46011802-517a1610-8a66-4a62-8735-f06dd2dc2364",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -862,7 +937,8 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"id": "46011802-f6feb4f9-6134-49e5-a5e2-7747277d542b"
 				},
 				{
 					"name": "GetSingleLocation",
@@ -873,6 +949,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "e225e66d-8bdc-42f9-b526-bb686e9fbe4d",
 										"exec": [
 											"pm.collectionVariables.set(\"CharacterId\", 1);\r",
 											""
@@ -884,6 +961,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "04688a00-d343-4962-87f4-beb12c120e64",
 										"exec": [
 											"var responseJson = pm.response.json();\r",
 											"\r",
@@ -914,6 +992,10 @@
 									}
 								}
 							],
+							"id": "46011802-fa827392-2b4b-4183-9fdd-66f3f851be80",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -938,6 +1020,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "8cf9bdfd-112d-48b7-adbb-378421e96961",
 										"exec": [
 											"pm.collectionVariables.set(\"LocationId\", -1);\r",
 											" "
@@ -949,6 +1032,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "f952554a-5545-435f-bf74-a054e9d96338",
 										"exec": [
 											"pm.test(\"Verify a invalid character id is returning a 404 status code with no information\", function () {\r",
 											"        pm.response.to.have.status(404);\r",
@@ -959,6 +1043,10 @@
 									}
 								}
 							],
+							"id": "46011802-851268e0-d3d7-4cee-a164-ba8becf47bad",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -983,6 +1071,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "05a11044-6bd9-45cb-8009-b8888fb53f84",
 										"exec": [
 											" pm.test(\"Verify that an API failed gracefully when invalid type (decimal value) has passed in the request.\", function () {\r",
 											"        pm.response.to.have.status(404);\r",
@@ -995,6 +1084,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
+										"id": "97611cd0-b392-4e14-9871-ba17e074853f",
 										"exec": [
 											"pm.collectionVariables.set(\"LocationId\", 9999999.01010);\r",
 											""
@@ -1004,6 +1094,10 @@
 									}
 								}
 							],
+							"id": "46011802-a144ad99-2b38-41ef-9633-675936a45816",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -1022,9 +1116,11 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"id": "46011802-3324792e-6858-485d-bab5-8c8c06a08dab"
 				}
-			]
+			],
+			"id": "46011802-18a33734-bff7-4cc7-ade9-07f691ce6ee3"
 		},
 		{
 			"name": "APIResources",
@@ -1032,6 +1128,7 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "95720748-ee7e-41e4-b7f4-b891f15b0f20",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1046,6 +1143,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
+						"id": "a0a0e3f1-81f0-4814-97be-7d769aff8047",
 						"exec": [
 							"const count = pm.info.iteration;\r",
 							"\r",
@@ -1057,6 +1155,10 @@
 					}
 				}
 			],
+			"id": "46011802-ec63969c-55ac-49ad-ba50-7e7ebe40de24",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -1078,6 +1180,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
+				"id": "69108604-0669-4d18-83ed-418d5ea123f8",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -1088,6 +1191,7 @@
 		{
 			"listen": "test",
 			"script": {
+				"id": "8c0c98b9-5c20-45ca-961c-ca3e6b97563f",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
