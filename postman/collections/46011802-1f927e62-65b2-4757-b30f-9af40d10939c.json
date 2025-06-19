@@ -281,8 +281,22 @@
 											"        pm.sendRequest(\"GetSingleCharacter\");\r",
 											"\r",
 											"    });\r",
+											"}\r",
+											"    \r",
+											"else if(loopCount==1){\r",
+											"        pm.test(\"Verify a invalid character id is returning a 404 status code with no information\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"        pm.environment.set(\"SingleCharacterLoopCount\", loopCount+1);\r",
+											"        pm.expect(responseJson.id==expectedCharacterId);\r",
+											"        pm.sendRequest(\"GetSingleCharacter\");\r",
+											"    \r",
+											"    });\r",
+											"}\r",
+											"else {\r",
+											"\r",
+											"}\r",
 											"  \r",
-											"}"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
