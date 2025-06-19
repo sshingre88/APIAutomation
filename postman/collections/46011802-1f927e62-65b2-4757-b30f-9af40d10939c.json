@@ -1030,14 +1030,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://{{Host}}/api/character/{{LocationId}}",
+									"raw": "https://{{Host}}/api/location/{{LocationId}}",
 									"protocol": "https",
 									"host": [
 										"{{Host}}"
 									],
 									"path": [
 										"api",
-										"character",
+										"location",
 										"{{LocationId}}"
 									]
 								}
