@@ -12,7 +12,7 @@
 					"name": "Characters",
 					"item": [
 						{
-							"name": "New Request",
+							"name": "DummyEchoRequest",
 							"id": "46011802-cefd813e-f1e6-4588-bafd-761f93bb9259",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
