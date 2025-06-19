@@ -240,7 +240,7 @@
 											"console.log(\"First character ID:\", firstId);\r",
 											"\r",
 											"// Optionally set it as another collection variable\r",
-											"pm.collectionVariables.set(\"firstCharacterId\", firstId);"
+											"pm.Variables.set(\"CharacterId\", firstId);"
 										],
 										"type": "text/javascript",
 										"packages": {}
