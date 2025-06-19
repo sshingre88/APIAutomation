@@ -255,7 +255,7 @@
 											"\r",
 											"}\r",
 											"\r",
-											"else if(loopCount==1){\r",
+											"else if(loopCount==2){\r",
 											"    pm.collectionVariables.set(\"CharacterId\", 999999999.10);\r",
 											"\r",
 											"}"
