@@ -293,7 +293,12 @@
 											"    });\r",
 											"}\r",
 											"else {\r",
-											"\r",
+											"        pm.test(\"Verify that an API failed gracefully when invalid type (decimal value) has passed in the request.\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"        pm.environment.set(\"SingleCharacterLoopCount\", loopCount+1);\r",
+											"        pm.expect(responseJson.id==expectedCharacterId);\r",
+											"        pm.sendRequest(\"GetSingleCharacter\");\r",
+											"    });\r",
 											"}\r",
 											"  \r",
 											""
