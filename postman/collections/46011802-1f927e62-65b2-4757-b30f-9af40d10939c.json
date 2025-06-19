@@ -226,7 +226,21 @@
 										"id": "e2a3dd2c-1a55-436e-8c00-eed2fc8cca22",
 										"exec": [
 											"pm.collectionVariables.get(\"characterIds\");\r",
-											""
+											"\r",
+											"// Get the comma-separated IDs string from collection variable\r",
+											"const idsString = pm.collectionVariables.get(\"characterIds\");\r",
+											"\r",
+											"// Split into array\r",
+											"const idsArray = idsString ? idsString.split(\",\") : [];\r",
+											"\r",
+											"// Get the first ID (or any other index)\r",
+											"const firstId = idsArray.length > 0 ? idsArray[0] : null;\r",
+											"\r",
+											"// Log or use it\r",
+											"console.log(\"First character ID:\", firstId);\r",
+											"\r",
+											"// Optionally set it as another collection variable\r",
+											"pm.collectionVariables.set(\"firstCharacterId\", firstId);"
 										],
 										"type": "text/javascript",
 										"packages": {}
