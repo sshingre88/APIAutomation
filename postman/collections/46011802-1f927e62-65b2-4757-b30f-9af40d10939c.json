@@ -388,6 +388,31 @@
 												"type": "text/javascript",
 												"packages": {}
 											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "7c83ea19-284f-44cf-9c9f-ebceaea2a7d5",
+												"exec": [
+													"var currentPage=pm.variables.get(\"RandomPageAccess\");\r",
+													"\r",
+													"pm.test(\"Verify that pagination has expected previous and next links.\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var nextPageUrl;\r",
+													"    var prevPageUrl;\r",
+													"   \r",
+													"    nextPageUrl = jsonData.info.next;\r",
+													"    prevPageUrl=jsonData.info.prev;\r",
+													"\r",
+													"    pm.expect(jsonData.info.next).to.eql(null);\r",
+													"    pm.expect(prevPageUrl).satisfy(val => val.split('page=')[1] == (currentPage-1));\r",
+													"\r",
+													"    \r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
 										}
 									],
 									"id": "46011802-0bfec5ef-b2c4-44d5-a682-23242f16cc2f",
