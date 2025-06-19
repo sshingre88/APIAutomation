@@ -263,8 +263,7 @@
 											"    pm.environment.set(\"SingleCharacterLoopCount\",0);\r",
 											"\r",
 											"}\r",
-											"if(iterationCountToSkipPaginationTests > 0)\r",
-											"    pm.execution.skipRequest();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
