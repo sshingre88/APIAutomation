@@ -1014,7 +1014,7 @@
 									"script": {
 										"id": "97611cd0-b392-4e14-9871-ba17e074853f",
 										"exec": [
-											"pm.collectionVariables.set(\"CharacterId\", 9999999.01010);\r",
+											"pm.collectionVariables.set(\"LocationId\", 9999999.01010);\r",
 											""
 										],
 										"type": "text/javascript",
