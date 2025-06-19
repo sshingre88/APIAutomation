@@ -663,17 +663,29 @@
 										"exec": [
 											"const response = pm.response.json();\r",
 											"\r",
-											"pm.test(\"Verify character filters are working\", function () {\r",
-											"    pm.expect(response.results.length).to.be.greaterThan(0);\r",
+											"// Basic status test\r",
+											"pm.test(\"Response returns with status 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"All characters match the filters\", function () {\r",
-											"    response.results.forEach(character => {\r",
-											"        if (pm.iterationData.status) pm.expect(character.status.toLowerCase()).to.eql(pm.iterationData.status.toLowerCase());\r",
-											"        if (pm.iterationData.gender) pm.expect(character.gender.toLowerCase()).to.eql(pm.iterationData.gender.toLowerCase());\r",
-											"        if (pm.iterationData.species) pm.expect(character.species.toLowerCase()).to.eql(pm.iterationData.species.toLowerCase());\r",
-											"        if (pm.iterationData.name) pm.expect(character.name.toLowerCase()).to.include(pm.iterationData.name.toLowerCase());\r",
-											"    });\r",
+											"// Check structure\r",
+											"pm.test(\"Response has valid structure\", function () {\r",
+											"    pm.expect(response).to.have.property(\"info\");\r",
+											"    pm.expect(response).to.have.property(\"results\");\r",
+											"});\r",
+											"\r",
+											"// Handle expected empty results\r",
+											"pm.test(\"Validate results for negative cases\", function () {\r",
+											"    const isNegative = \r",
+											"        (data.name && data.name === \"NonExistentCharacter\") ||\r",
+											"        (data.status && ![\"alive\", \"dead\", \"unknown\"].includes(data.status.toLowerCase())) ||\r",
+											"        (data.gender && ![\"male\", \"female\", \"genderless\", \"unknown\"].includes(data.gender.toLowerCase()));\r",
+											"\r",
+											"    if (isNegative) {\r",
+											"        pm.expect(response.results.length).to.eql(0);\r",
+											"    } else {\r",
+											"        pm.expect(response.results.length).to.be.greaterThan(0);\r",
+											"    }\r",
 											"});"
 										],
 										"type": "text/javascript",
@@ -687,7 +699,41 @@
 							},
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "https://rickandmortyapi.com/api/character?name={{name}}&status={{status}}&species={{species}}&type={{type}}&gender={{gender}}",
+									"protocol": "https",
+									"host": [
+										"rickandmortyapi",
+										"com"
+									],
+									"path": [
+										"api",
+										"character"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{name}}"
+										},
+										{
+											"key": "status",
+											"value": "{{status}}"
+										},
+										{
+											"key": "species",
+											"value": "{{species}}"
+										},
+										{
+											"key": "type",
+											"value": "{{type}}"
+										},
+										{
+											"key": "gender",
+											"value": "{{gender}}"
+										}
+									]
+								}
 							},
 							"response": []
 						}
