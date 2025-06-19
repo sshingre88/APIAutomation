@@ -472,13 +472,41 @@
 					"item": [
 						{
 							"name": "GetMultipleCharacters",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6c4d4445-edcc-4805-9e13-2f9be1f2b0ab",
+										"exec": [
+											"const ids = [1,183];\r",
+											"const queryStr = names.join(\",\"); // \"Rick,Morty,Summer\"\r",
+											"pm.collectionVariables.set(\"CharacterId\", queryStr);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "46011802-f467a4e8-2480-4c27-97ef-3b1e8289fb59",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
 							},
 							"response": []
 						}
