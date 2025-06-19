@@ -283,7 +283,7 @@
 											"        var expectedCharacterId= pm.collectionVariables.get(\"CharacterId\");\r",
 											"        pm.environment.set(\"SingleCharacterLoopCount\", loopCount+1);\r",
 											"        pm.expect(responseJson.id==expectedCharacterId);\r",
-											"        postman.setNextRequest(\"GetSingleCharacter\");\r",
+											"        pm.execution.setNextRequest(\"GetSingleCharacter\");\r",
 											"\r",
 											"    });\r",
 											"}\r",
