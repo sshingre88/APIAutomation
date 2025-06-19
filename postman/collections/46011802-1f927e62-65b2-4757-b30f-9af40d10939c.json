@@ -225,6 +225,18 @@
 									"script": {
 										"id": "e2a3dd2c-1a55-436e-8c00-eed2fc8cca22",
 										"exec": [
+											"\r",
+											"let count = pm.info.iteration;\r",
+											"console.log(count);\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
 											"// Get the comma-separated IDs string from collection variable\r",
 											"var idsString = pm.collectionVariables.get(\"characterIds\");\r",
 											"\r",
@@ -255,7 +267,7 @@
 										"id": "1670dd67-8b61-44ea-895a-51ced97aecd3",
 										"exec": [
 											"\r",
-											"pm.test(\"Verify a valid character id returning a 200 status code and correct information\", function () {\r",
+											"pm.test(\"Verify a valid character id is returning a 200 status code and correct information\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"    var responseJson = pm.response.json();\r",
 											"    var expectedCharacterId= pm.collectionVariables.get(\"CharacterId\");\r",
