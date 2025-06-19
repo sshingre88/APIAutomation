@@ -12,7 +12,7 @@
 					"name": "Characters",
 					"item": [
 						{
-							"name": "Character",
+							"name": "GetAllCharacters",
 							"event": [
 								{
 									"listen": "test",
