@@ -530,7 +530,7 @@
 							"response": []
 						},
 						{
-							"name": "ValidCharacterIds Copy",
+							"name": "InvalidCharacterIdList",
 							"event": [
 								{
 									"listen": "test",
