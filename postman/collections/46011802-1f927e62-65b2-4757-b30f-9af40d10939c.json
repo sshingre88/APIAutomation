@@ -242,7 +242,8 @@
 											"console.log(\"First character ID:\", firstId);\r",
 											"\r",
 											"// Optionally set it as another collection variable\r",
-											"pm.Variables.set(\"CharacterId\", firstId);"
+											"pm.collectionVariables.set(\"CharacterId\", firstId);\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -369,6 +370,10 @@
 	"variable": [
 		{
 			"key": "characterIds",
+			"value": ""
+		},
+		{
+			"key": "CharacterId",
 			"value": ""
 		}
 	]
