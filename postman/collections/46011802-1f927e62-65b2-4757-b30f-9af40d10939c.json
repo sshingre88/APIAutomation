@@ -528,6 +528,65 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "ValidCharacterIds Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6c4d4445-edcc-4805-9e13-2f9be1f2b0ab",
+										"exec": [
+											"var responseJson = pm.response.json();\r",
+											"var expectedCharacterIds= pm.collectionVariables.get(\"CharacterId\");\r",
+											"\r",
+											"pm.test(\"Verify that multiple characters are returned successfully\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"        const actualIds = responseJson.map(char => char.id);\r",
+											"        pm.expect(actualIds==expectedCharacterIds);\r",
+											"\r",
+											"    });\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "aed1dd34-562e-45a6-912b-fe6618a28bf7",
+										"exec": [
+											"const ids = [1,183];\r",
+											"const queryStr = ids.join(\",\"); // \"Rick,Morty,Summer\"\r",
+											"pm.collectionVariables.set(\"CharacterId\", queryStr);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "46011802-3914f627-4c85-44df-8670-8f3cb3f0ab72",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"api",
+										"character",
+										"{{CharacterId}}"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"id": "46011802-7107ed20-e17b-40a7-b62c-f95de1c9540f"
