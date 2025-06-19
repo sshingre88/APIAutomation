@@ -543,6 +543,9 @@
 											"pm.test(\"Verify that multiple characters are returned successfully\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
 											"        const actualIds = responseJson.map(char => char.id);\r",
+											"    console.log(\"actualids \", actualIds);\r",
+											"        console.log(\"expectedCharacterIds \", expectedCharacterIds)\r",
+											"\r",
 											"        pm.expect(actualIds==expectedCharacterIds);\r",
 											"\r",
 											"    });\r",
@@ -557,7 +560,7 @@
 									"script": {
 										"id": "aed1dd34-562e-45a6-912b-fe6618a28bf7",
 										"exec": [
-											"const ids = [1231,998998];\r",
+											"const ids = [988767678,998998];\r",
 											"const queryStr = ids.join(\",\"); // \"Rick,Morty,Summer\"\r",
 											"pm.collectionVariables.set(\"CharacterId\", queryStr);"
 										],
