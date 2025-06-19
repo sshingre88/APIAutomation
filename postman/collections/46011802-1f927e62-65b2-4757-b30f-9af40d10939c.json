@@ -471,7 +471,7 @@
 					"name": "GetMultipleCharacters",
 					"item": [
 						{
-							"name": "GetMultipleCharacters",
+							"name": "-Val",
 							"event": [
 								{
 									"listen": "test",
