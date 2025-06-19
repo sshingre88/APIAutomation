@@ -26,7 +26,7 @@
 											"     jsonData = pm.response.json();\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Check summary object\", function () {\r",
+											"pm.test(\"Check total character count\", function () {\r",
 											"    pm.expect(jsonData.info.count).to.eql(826);\r",
 											"});\r",
 											"\r",
