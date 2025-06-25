@@ -146,18 +146,26 @@
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
+								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"id\":,AutoIncremented()\r\n    \"name\": \"Rick\",\r\n    \"status\": \"Alive\",\r\n    \"species\": \"Human\",\r\n    \"expectedgender\": \"Male\",\r\n    \"expectedCount\": 20,\r\n    \"expectedCharacterName\": \"Rick Sanchez\",\r\n\t  \"expectedId\": 1\r\n\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": "https://{{Host}}/api/character/{{CharacterId}}",
+									"raw": "https://{{Host}}/api/character",
 									"protocol": "https",
 									"host": [
 										"{{Host}}"
 									],
 									"path": [
 										"api",
-										"character",
-										"{{CharacterId}}"
+										"character"
 									]
 								}
 							},
